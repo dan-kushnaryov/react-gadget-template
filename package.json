@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "react": "~0.12.1",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "browserify": "~6.3.3",
+    "gulp": "~3.8.10",
+    "reactify": "~0.17.1",
+    "vinyl-source-stream": "~1.0.0"
+  }
+}
