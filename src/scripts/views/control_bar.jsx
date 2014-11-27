@@ -6,11 +6,14 @@ var ControlBar = React.createClass({
   render: function() {
     return (
       <div>
-       <Timer />
+       <Timer
+         duration={this.props.duration}
+         onStart={this.props.onTimerStart}
+         onEnd={this.props.onTimerEnd} />
        <Status.Score />
       </div>
     );
-  }
+  },
 });
 
 module.exports = ControlBar;
