@@ -1,7 +1,7 @@
 var React = require('react');
-var HelloWorld = require('./components/hello_world');
+var HelloReact = require('./components/hello_react');
 
 React.render(
-  <HelloWorld />,
+  <HelloReact />,
   document.getElementById('content')
 );

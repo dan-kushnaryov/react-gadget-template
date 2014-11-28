@@ -2,7 +2,7 @@
   "launcher": "iframe",
   "name": "hello-react",
   "version": "0.0.1",
-  "title": "Hello react",
-  "description": "Hello world using react",
+  "title": "Hello React",
+  "description": "Hello world using ReactJs",
   "author": "Team Versal"
 }

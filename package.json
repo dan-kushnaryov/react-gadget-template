@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "install": "karma start && gulp"
+    "install": "bower install && karma start && gulp"
   },
   "dependencies": {
     "react": "~0.12.1",
