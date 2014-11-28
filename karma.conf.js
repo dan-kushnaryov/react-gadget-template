@@ -8,10 +8,12 @@ module.exports = function(config) {
       // https://github.com/ariya/phantomjs/issues/10522
       'test/shims/phantomjs-shims.js',
       'test/**/*_spec.js',
+      'test/**/*_spec.jsx'
     ],
     reporters: ['dots'],
     preprocessors: {
-      'test/**/*_spec.js': ['browserify']
+      'test/**/*_spec.js': ['browserify'],
+      'test/**/*_spec.jsx': ['browserify']
     },
     port: 9876,
     colors: true,
