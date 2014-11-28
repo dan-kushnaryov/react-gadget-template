@@ -7,7 +7,7 @@ var HelloReact = React.createClass({
   render: function() {
     var role = this.state.editable ? 'author' : 'learner';
     return (
-      <div className="hello-react">
+      <div className="hello">
         Hello ReactJs + Versal!
         <span refs="role" className="role">{role}</span>
       </div>

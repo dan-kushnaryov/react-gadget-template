@@ -1,28 +1,25 @@
 {
   "scripts": {
-    "install": "bower install && karma start --no-auto-watch && gulp"
+    "install": "bower install && gulp",
+    "test": "jest"
   },
   "dependencies": {
     "react": "~0.12.1",
     "underscore": "~1.7.0"
   },
   "devDependencies": {
-    "brfs": "~1.2.0",
     "browserify": "~6.3.3",
-    "browserify-shim": "~3.8.0",
-    "chai": "~1.10.0",
     "gulp": "~3.8.10",
-    "karma": "~0.12.28",
-    "karma-browserify": "~1.0.0",
-    "karma-chai": "~0.1.0",
-    "karma-cli": "~0.0.4",
-    "karma-mocha": "~0.1.9",
-    "karma-phantomjs-launcher": "~0.1.4",
-    "mocha": "~2.0.1",
+    "jest-cli": "~0.1.18",
+    "react-tools": "~0.12.1",
     "reactify": "~0.17.1",
     "vinyl-source-stream": "~1.0.0"
   },
-  "browserify-shim": {
-    "external": "global:External"
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "testFileExtensions": ["js", "jsx"],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
   }
 }
