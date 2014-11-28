@@ -3,5 +3,5 @@ var HelloReact = require('./components/hello_react');
 
 React.render(
   <HelloReact />,
-  document.getElementById('content')
+  document.getElementById('app')
 );
