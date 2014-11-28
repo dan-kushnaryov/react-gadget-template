@@ -20,14 +20,14 @@ gulp.task('browserify', function(){
     extensions: ['.jsx']
   });
   b.transform(reactify);
-  b.add('./src/scripts/main.jsx');
+  b.add('./src/js/main.jsx');
   return b.bundle()
     .pipe(source('main.js'))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('styles', function() {
-  gulp.src('./src/styles/**/*')
+  gulp.src('./src/css/**/*')
     .pipe(gulp.dest('./dist'));
 });
 
