@@ -5,7 +5,7 @@ var reactify = require('reactify');
 var exec = require('child_process').exec;
 
 gulp.task('jslint', function (cb) {
-  exec('./lint.sh', function (err, stdout, stderr) {
+  exec('./scripts/lint.sh', function (err, stdout, stderr) {
     if (err) {
       console.log(stdout);
       console.log(stderr);
@@ -20,14 +20,14 @@ gulp.task('browserify', function(){
     extensions: ['.jsx']
   });
   b.transform(reactify);
-  b.add('./src/js/main.jsx');
+  b.add('./js/app.jsx');
   return b.bundle()
-    .pipe(source('main.js'))
+    .pipe(source('app.js'))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('styles', function() {
-  gulp.src('./src/css/**/*')
+  gulp.src('./css/**/*')
     .pipe(gulp.dest('./dist'));
 });
 

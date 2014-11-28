@@ -1,6 +1,6 @@
 var _ = require('underscore');
 var React = require('react');
-var Texts = require('../texts');
+var Texts = require('../content/texts');
 
 var ControlBar = require('./control_bar.jsx');
 var Lines = require('./lines.jsx');
