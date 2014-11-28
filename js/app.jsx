@@ -1,5 +1,5 @@
 var React = require('react');
-var TypingTest = require('./components/typing_test.jsx');
+var TypingTest = require('./components/typing_test');
 
 React.render(
   <TypingTest />,

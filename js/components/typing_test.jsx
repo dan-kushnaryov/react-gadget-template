@@ -2,10 +2,10 @@ var _ = require('underscore');
 var React = require('react');
 var Texts = require('../content/texts');
 
-var ControlBar = require('./control_bar.jsx');
-var Lines = require('./lines.jsx');
-var StatusBar = require('./status_bar.jsx');
-var Overlay = require('./overlay.jsx');
+var ControlBar = require('./control_bar');
+var Lines = require('./lines');
+var StatusBar = require('./status_bar');
+var Overlay = require('./overlay');
 
 var TypingTest = React.createClass({
 
