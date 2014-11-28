@@ -5,9 +5,10 @@ var HelloReact = React.createClass({
   mixins: [VersalGadgetMixin],
 
   render: function() {
+    var role = this.state.editable ? 'author' : 'learner';
     return (
       <div>
-        Hello react!
+        Hello ReactJs + Versal! <span className="role">{role}</span>
       </div>
     );
   }
