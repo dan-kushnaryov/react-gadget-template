@@ -1,11 +1,18 @@
 {
   "dependencies": {
     "react": "~0.12.1",
-    "underscore": "^1.7.0"
+    "underscore": "~1.7.0"
   },
   "devDependencies": {
     "browserify": "~6.3.3",
+    "chai": "~1.10.0",
     "gulp": "~3.8.10",
+    "karma": "~0.12.28",
+    "karma-chai": "~0.1.0",
+    "karma-cli": "~0.0.4",
+    "karma-mocha": "~0.1.9",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "mocha": "~2.0.1",
     "reactify": "~0.17.1",
     "vinyl-source-stream": "~1.0.0"
   }
