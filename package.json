@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "install": "bower install && karma start && gulp"
+    "install": "bower install && karma start --no-auto-watch && gulp"
   },
   "dependencies": {
     "react": "~0.12.1",
@@ -19,7 +19,6 @@
     "karma-mocha": "~0.1.9",
     "karma-phantomjs-launcher": "~0.1.4",
     "mocha": "~2.0.1",
-    "polyfill-function-prototype-bind": "~0.0.1",
     "reactify": "~0.17.1",
     "vinyl-source-stream": "~1.0.0"
   },

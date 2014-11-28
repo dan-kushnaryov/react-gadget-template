@@ -2,10 +2,12 @@ module.exports = function(config) {
   config.set({
     frameworks: ['browserify', 'mocha', 'chai'],
     files: [
+      'bower_components/eventEmitter/EventEmitter.js',
+      'bower_components/versal-gadget-api/versal-player-api.js',
       // This polyfill is needed for phantomjs, see:
       // https://github.com/ariya/phantomjs/issues/10522
-      'node_modules/polyfill-function-prototype-bind/bind.js',
-      'test/**/*_spec.js'
+      'test/shims/phantomjs-shims.js',
+      'test/**/*_spec.js',
     ],
     reporters: ['dots'],
     preprocessors: {
@@ -15,7 +17,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     singleRun: true,
-    autoWatch: false,
+    autoWatch: true,
     browsers: ['PhantomJS'],
     browserify: {
       debug: true,
