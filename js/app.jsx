@@ -1,7 +1,7 @@
 var React = require('react');
-var TypingTest = require('./components/typing_test');
+var HelloWorld = require('./components/hello_world');
 
 React.render(
-  <TypingTest />,
+  <HelloWorld />,
   document.getElementById('content')
 );
