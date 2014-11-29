@@ -20,7 +20,7 @@ module.exports = {
   'Default authoring': function(browser) {
     player.visit(browser)
       .waitForElementPresent(ui.gadgetInTray)
-      .execute("window.$('" + ui.gadgetInTray + "').trigger('dblclick')")
+      .jqueryDoubleClick(ui.gadgetInTray)
       .waitForElementPresent(ui.gadgetInLesson)
       .saveScreenshot('images/default-authoring.png')
       .end();
@@ -29,7 +29,7 @@ module.exports = {
   'Default learning': function(browser) {
     player.visit(browser)
       .waitForElementPresent(ui.gadgetInTray)
-      .execute("window.$('" + ui.gadgetInTray + "').trigger('dblclick')")
+      .jqueryDoubleClick(ui.gadgetInTray)
       .waitForElementPresent(ui.gadgetInLesson)
       .click(ui.gadgetEditToggle)
       .saveScreenshot('images/default-learning.png')
