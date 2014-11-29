@@ -8,7 +8,7 @@
     "start_process" : true,
     "server_path" : "tests/demos/lib/selenium-server-standalone-2.44.0.jar",
     "log_path" : "",
-    "host" : "127.0.0.1",
+    "host" : "localhost",
     "port" : 4444,
     "cli_args" : {
       "webdriver.chrome.driver" : "",
@@ -25,13 +25,6 @@
         "enabled" : true,
         "path" : "images"
       },
-      "desiredCapabilities": {
-        "browserName": "firefox",
-        "javascriptEnabled": true,
-        "acceptSslCerts": true
-      }
-    },
-    "chrome" : {
       "desiredCapabilities": {
         "browserName": "chrome",
         "javascriptEnabled": true,
