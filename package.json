@@ -1,7 +1,7 @@
 {
   "scripts": {
     "install": "bower install && gulp",
-    "test": "nightwatch"
+    "test": "nightwatch --verbose"
   },
   "dependencies": {
     "react": "~0.12.1",
