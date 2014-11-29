@@ -4,6 +4,7 @@ node_js:
 install:
   - npm install --global bower
   - npm install --global jshint
+  - npm install --global nightwatch
 before_script:
   - npm install
 before_install:
