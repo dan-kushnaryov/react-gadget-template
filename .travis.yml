@@ -13,7 +13,7 @@ before_script:
 - curl -o BrowserStackTunnel.jar http://www.browserstack.com/BrowserStackTunnel.jar
 - versal preview --port 3000 &
 - sleep 3
-- java -jar BrowserStackTunnel.jar $BROWSERSTACK_KEY localhost,3000,0 &
+- java -jar BrowserStackTunnel.jar BROWSERSTACK_KEY localhost,3000,0 &
 - sleep 3
 - npm install
 script: nightwatch --config nightwatch.travis.json
