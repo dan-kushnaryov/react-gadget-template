@@ -7,3 +7,4 @@ images/*
 !images/.keep
 selenium-debug.log
 tests/demos/lib/selenium-server-standalone-*.jar
+BrowserStackTunnel.jar
