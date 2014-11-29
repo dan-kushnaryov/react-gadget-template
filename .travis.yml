@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - 0.10
 install:
-  - npm install --global Versal/sdk@fix/dist-dir-error
+  - npm install --global git://github.com/Versal/sdk.git#fix/dist-dir-error
   - npm install --global bower
   - npm install --global jshint
   - npm install --global nightwatch
