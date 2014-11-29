@@ -7,11 +7,10 @@ install:
 - npm install --global jshint
 - npm install --global nightwatch
 before_script:
-- sed -i s/BROWSERSTACK_USER/$BROWSERSTACK_USER/g nightwatch.travis.json
 - sed -i s/BROWSERSTACK_KEY/$BROWSERSTACK_KEY/g nightwatch.travis.json
 - cat nightwatch.travis.json
-- curl -o BrowserStackTunnel.jar http://www.browserstack.com/BrowserStackTunnel.jar
-- versal preview --port 3000 & && sleep 5 && java -jar BrowserStackTunnel.jar BROWSERSTACK_KEY localhost,3000,0 & && sleep 5
+- browserstack_tunnel.sh
+- versal preview
 - npm install
 script: nightwatch --config nightwatch.travis.json
 env:
