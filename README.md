@@ -20,9 +20,22 @@ npm install
 gulp
 ```
 
-## Test
+## Unit tests
 
 ```
 npm test
+```
+
+## Acceptance tests
+
+Launch preview manually (for now)
+
+```
+versal preview
+```
+
+Then run the tests with [nightwatch](http://nightwatchjs.org)
+
+```
 nightwatch
 ```
