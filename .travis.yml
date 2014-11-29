@@ -9,7 +9,7 @@ install:
 before_script:
 - sed -i s/BROWSERSTACK_KEY/$BROWSERSTACK_KEY/g nightwatch.travis.json
 - cat nightwatch.travis.json
-- browserstack_tunnel.sh
+- ./browserstack_tunnel.sh
 - versal preview
 - npm install
 script: nightwatch --config nightwatch.travis.json
