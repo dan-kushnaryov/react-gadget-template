@@ -2,7 +2,9 @@ language: node_js
 node_js:
   - 0.1
 before_install:
-  - echo 111 $MOOF $FOOF
+  - echo 111
+  - echo $MOOF
+  - echo $FOOF
   - mkdir -p tests/demos/lib
   - wget http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
     -O tests/demos/lib/selenium-server-standalone-2.44.0.jar
