@@ -1,4 +1,9 @@
 bower_components
 node_modules
+reports
 dist
 npm-debug.log
+images/*
+!images/.keep
+selenium-debug.log
+tests/demos/lib/selenium-server-standalone-*.jar
