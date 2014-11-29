@@ -8,7 +8,7 @@ var ui = {
 };
 
 module.exports = {
-  beforeEach: function(client) {
+  beforeEach: function(browser) {
     player = new TestPlayer();
     player.start();
   },
@@ -17,8 +17,8 @@ module.exports = {
     player.stop(callback);
   },
 
-  'Default authoring': function(client) {
-    player.visit(client)
+  'Default authoring': function(browser) {
+    player.visit(browser)
       .waitForElementPresent(ui.gadgetInTray)
       .execute("window.$('" + ui.gadgetInTray + "').trigger('dblclick')")
       .waitForElementPresent(ui.gadgetInLesson)
@@ -26,8 +26,8 @@ module.exports = {
       .end();
   },
 
-  'Default learning': function(client) {
-    player.visit(client)
+  'Default learning': function(browser) {
+    player.visit(browser)
       .waitForElementPresent(ui.gadgetInTray)
       .execute("window.$('" + ui.gadgetInTray + "').trigger('dblclick')")
       .waitForElementPresent(ui.gadgetInLesson)
