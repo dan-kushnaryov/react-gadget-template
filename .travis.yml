@@ -1,20 +1,21 @@
 language: node_js
 node_js:
-- 0.1
-install:
-- npm install --global git://github.com/Versal/sdk.git#fix/dist-dir-error
-- npm install --global bower
-- npm install --global jshint
-- npm install --global nightwatch
-before_script:
-- npm install
+  - 0.1
 before_install:
-- echo 111, $MOOF
-- mkdir -p tests/demos/lib
-- wget http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
-  -O tests/demos/lib/selenium-server-standalone-2.44.0.jar
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+  - echo 111, $MOOF $FOOF
+  - mkdir -p tests/demos/lib
+  - wget http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
+    -O tests/demos/lib/selenium-server-standalone-2.44.0.jar
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+install:
+  - npm install --global git://github.com/Versal/sdk.git#fix/dist-dir-error
+  - npm install --global bower
+  - npm install --global jshint
+  - npm install --global nightwatch
+before_script:
+  - npm install
 env:
   global:
+    FOOF: yayay
     secure: CUS4LjM1WKZKYg63CGzO8OP3xT+LF0pO6V9rOY/99twYg4tSb/OUbZE0Ow5CGh1TYP2xDUFVU6vITyQhWCcU3UTNyjnIqothonapjmIF/odEs0yvWFBiO3yDUrcTtd45Kny9GlXbjUXWB2QiVIe0xyCf7ihGJcXdBs7lyiSJIiA=
