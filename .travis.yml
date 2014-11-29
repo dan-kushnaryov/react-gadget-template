@@ -19,4 +19,5 @@ before_script:
   - npm install
 env:
   global:
-    secure: CUS4LjM1WKZKYg63CGzO8OP3xT+LF0pO6V9rOY/99twYg4tSb/OUbZE0Ow5CGh1TYP2xDUFVU6vITyQhWCcU3UTNyjnIqothonapjmIF/odEs0yvWFBiO3yDUrcTtd45Kny9GlXbjUXWB2QiVIe0xyCf7ihGJcXdBs7lyiSJIiA=
+    - FOOF=yayay
+    - secure: CUS4LjM1WKZKYg63CGzO8OP3xT+LF0pO6V9rOY/99twYg4tSb/OUbZE0Ow5CGh1TYP2xDUFVU6vITyQhWCcU3UTNyjnIqothonapjmIF/odEs0yvWFBiO3yDUrcTtd45Kny9GlXbjUXWB2QiVIe0xyCf7ihGJcXdBs7lyiSJIiA=
