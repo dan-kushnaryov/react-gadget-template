@@ -1,7 +1,7 @@
 var spawn = require('child_process').spawn;
 
 var TestPlayer = function() {
-  this.port = 8879;
+  this.port = 3000;
 };
 
 TestPlayer.prototype.visit = function(client) {
