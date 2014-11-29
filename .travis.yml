@@ -1,23 +1,18 @@
 language: node_js
 node_js:
   - 0.1
-before_install:
-  - echo $MOOF
-  - echo $FOOF
-  - echo $FOOF
-  - mkdir -p tests/demos/lib
-  - wget http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
-    -O tests/demos/lib/selenium-server-standalone-2.44.0.jar
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
 install:
   - npm install --global git://github.com/Versal/sdk.git#fix/dist-dir-error
   - npm install --global bower
   - npm install --global jshint
   - npm install --global nightwatch
 before_script:
+  - curl -o BrowserStackTunnel.jar http://www.browserstack.com/BrowserStackTunnel.jar
+  - versal preview --port 8879
+  - sleep 3
+  - java -jar BrowserStackTunnel.jar $BROWSERSTACK_KEY localhost,8879,0
+  - sleep 3
   - npm install
 env:
   global:
-    - FOOF=yayay
-    - secure: CUS4LjM1WKZKYg63CGzO8OP3xT+LF0pO6V9rOY/99twYg4tSb/OUbZE0Ow5CGh1TYP2xDUFVU6vITyQhWCcU3UTNyjnIqothonapjmIF/odEs0yvWFBiO3yDUrcTtd45Kny9GlXbjUXWB2QiVIe0xyCf7ihGJcXdBs7lyiSJIiA=
+    secure: HZ6MkAoq0vVOQLzWuHS5Cnr6vMx/wmxJR4LsWlv4gTSyCpTtgBBJgt+ZE+pSNi0RQeJ1JwlQbFslHBwrixavQuCfLOjlLBNnW9JAn2Z8jbPM5RZRFmDjYnL+4xGXZsobXhM5zGAEsNdX7TF2N3V1/xc7gGdy4Zj+aAYq8LMzTuw=
