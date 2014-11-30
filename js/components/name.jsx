@@ -1,14 +1,31 @@
 var React = require('react');
 
 var Name = React.createClass({
+
   render: function() {
     var nameTag;
     if (this.props.editable) {
-      nameTag = <input type="text" className="name">{this.props.name}</input>;
+      nameTag = (
+        <input
+          ref="name"
+          type="text"
+          className="name"
+          onKeyUp={this.onKeyUp}
+          defaultValue={this.props.name} />
+      );
     } else {
-      nameTag = <div className="name">{this.props.name}</div>;
+      nameTag = (
+        <div className="name">
+          {this.props.name}
+        </div>
+      );
     }
     return nameTag;
+  },
+
+  onKeyUp: function() {
+    var name = this.refs.name.getDOMNode().value;
+    this.props.onNameChange(name);
   }
 });
 
