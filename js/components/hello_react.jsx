@@ -20,14 +20,14 @@ var HelloReact = React.createClass({
       <div className="hello">
         <div>
           Hello ReactJs + Versal!
-          <span refs="role" className="role">{role}</span>
+          <span className="role">{role}</span>
         </div>
         <hr />
         <div>
           Author: <Name
-                   name={this.state.name}
-                   editable={this.state.editable}
-                   onNameChange={this.onNameChange} />
+                    name={this.state.name}
+                    editable={this.state.editable}
+                    onNameChange={this.onNameChange} />
         </div>
       </div>
     );
