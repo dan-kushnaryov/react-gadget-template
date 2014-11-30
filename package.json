@@ -22,6 +22,10 @@
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
     "testFileExtensions": [
       "js",
       "jsx"

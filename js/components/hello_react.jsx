@@ -1,6 +1,8 @@
 var React = require('react');
 var VersalGadgetMixin = require('./mixins/versal');
 
+var Name = require('./name');
+
 var HelloReact = React.createClass({
   mixins: [VersalGadgetMixin],
 
@@ -8,8 +10,13 @@ var HelloReact = React.createClass({
     var role = this.state.editable ? 'author' : 'learner';
     return (
       <div className="hello">
-        Hello ReactJs + Versal!
-        <span refs="role" className="role">{role}</span>
+        <div>
+          Hello ReactJs + Versal!
+          <span refs="role" className="role">{role}</span>
+        </div>
+        <div>
+          Author <Name name="Lulu" editable={this.state.editable} />
+        </div>
       </div>
     );
   }

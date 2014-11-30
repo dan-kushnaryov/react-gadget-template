@@ -1,17 +1,9 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-jest.dontMock('../mixins/versal.js');
-jest.dontMock('../hello_react.jsx');
-var HelloReact = require('../hello_react.jsx');
-
-// TODO Decide what to do about this. Ideally the player API
-// is available as a CommonJs module and we can do a manual
-// mock to get the right behavior.
-VersalPlayerAPI = function() {};
-VersalPlayerAPI.prototype.on = function() {};
-VersalPlayerAPI.prototype.startListening = function() {};
-VersalPlayerAPI.prototype.watchBodyHeight = function() {};
+jest.dontMock('../mixins/versal');
+jest.dontMock('../hello_react');
+var HelloReact = require('../hello_react');
 
 var findComponent = TestUtils.findRenderedDOMComponentWithClass;
 var renderComponent = TestUtils.renderIntoDocument;

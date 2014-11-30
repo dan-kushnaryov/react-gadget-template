@@ -5,3 +5,7 @@ body {
 .role {
   float: right;
 }
+
+.name {
+  display: inline-block;
+}
