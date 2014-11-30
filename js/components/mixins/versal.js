@@ -1,3 +1,5 @@
+VersalPlayerAPI = require('../../versal/player');
+
 var VersalGadgetMixin = {
   getInitialState: function() {
     return { editable: false };

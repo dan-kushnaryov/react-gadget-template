@@ -5,7 +5,8 @@
   },
   "dependencies": {
     "react": "~0.12.1",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "event-emitter": "~0.3.1"
   },
   "devDependencies": {
     "browserify": "~6.3.3",
