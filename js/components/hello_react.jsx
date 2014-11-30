@@ -6,6 +6,10 @@ var Name = require('./name');
 var HelloReact = React.createClass({
   mixins: [VersalGadgetMixin],
 
+  getInitialState: function() {
+    return { name: 'Lulu' };
+  },
+
   onNameChange: function(name) {
     this.player.setAttributes({ name: name });
   },
@@ -18,9 +22,10 @@ var HelloReact = React.createClass({
           Hello ReactJs + Versal!
           <span refs="role" className="role">{role}</span>
         </div>
+        <hr />
         <div>
-          Author <Name
-                   name="Lulu"
+          Author: <Name
+                   name={this.state.name}
                    editable={this.state.editable}
                    onNameChange={this.onNameChange} />
         </div>

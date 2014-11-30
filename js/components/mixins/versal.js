@@ -28,30 +28,33 @@ var VersalGadgetMixin = {
   },
 
   _onAttributesChanged: function(attributes) {
-    // Give component an opportunity to work with the
-    // next value before update.
     if (this.attributesWillUpdate) {
       this.attributesWillUpdate(attributes);
     }
     this.setState(attributes);
+    if (this.attributesDidUpdate) {
+      this.attributesDidUpdate(attributes);
+    }
   },
 
   _onLearnerStateChanged: function(learnerState) {
-    // Give component an opportunity to work with the
-    // next value before update.
     if (this.learnerStateWillUpdate) {
       this.learnerStateWillUpdate(learnerState);
     }
     this.setState(learnerState);
+    if (this.learnerStateDidUpdate) {
+      this.learnerStateDidUpdate(learnerState);
+    }
   },
 
   _onEditableChanged: function(editable) {
-    // Give component an opportunity to work with the
-    // next value before update.
     if (this.editableWillUpdate) {
       this.editableWillUpdate(editable.editable);
     }
     this.setState(editable);
+    if (this.editableDidUpdate) {
+      this.editableDidUpdate(editable.editable);
+    }
   }
 };
 
