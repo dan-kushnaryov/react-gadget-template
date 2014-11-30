@@ -1,5 +1,5 @@
 var React = require('react');
-var VersalGadgetMixin = require('./mixins/versal_gadget');
+var VersalGadgetMixin = require('./mixins/versal');
 
 var HelloReact = React.createClass({
   mixins: [VersalGadgetMixin],
