@@ -1,4 +1,4 @@
-var EventEmitter = require('event-emitter');
+var EventEmitter = require('wolfy87-eventemitter');
 
 //  This Player thing should be used inside gadget
 //  as a convenience API over postMessage.
@@ -6,7 +6,7 @@ var EventEmitter = require('event-emitter');
 //  Supported events:
 //  https://github.com/Versal/versal-gadget-launchers/tree/master/iframe-launcher
 var PlayerAPI = function(options){
-  EventEmitter(this);
+  EventEmitter.call(this);
 
   this.eventSource = (options && options.eventSource) || window.parent;
 
@@ -28,8 +28,10 @@ var PlayerAPI = function(options){
 
 PlayerAPI.prototype = Object.create(EventEmitter.prototype);
 
-PlayerAPI.prototype.addEventListener = PlayerAPI.prototype.on;
-PlayerAPI.prototype.removeEventListener = PlayerAPI.prototype.off;
+PlayerAPI.prototype.on = PlayerAPI.prototype.addListener;
+PlayerAPI.prototype.off = PlayerAPI.prototype.removeListener;
+PlayerAPI.prototype.addEventListener = PlayerAPI.prototype.addListener;
+PlayerAPI.prototype.removeEventListener = PlayerAPI.prototype.removeListener;
 
 PlayerAPI.prototype.sendMessage = function(name, data) {
   var message = { event: name };
