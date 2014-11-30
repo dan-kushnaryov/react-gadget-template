@@ -3,7 +3,6 @@
 ## Prerequisites
 
 ```
-npm install --global bower
 npm install --global jshint
 npm install --global nightwatch
 ```
