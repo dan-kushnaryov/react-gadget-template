@@ -3,6 +3,7 @@
 ## Prerequisites
 
 ```
+npm install --global gulp
 npm install --global jshint
 npm install --global nightwatch
 ```
