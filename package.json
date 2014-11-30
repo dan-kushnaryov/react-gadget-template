@@ -1,12 +1,13 @@
 {
   "scripts": {
-    "install": "bower install && gulp",
+    "install": "gulp",
     "test": "jest"
   },
   "dependencies": {
     "react": "~0.12.1",
     "underscore": "~1.7.0",
-    "event-emitter": "~0.3.1"
+    "event-emitter": "~0.3.1",
+    "normalize.css": "~3.0.2"
   },
   "devDependencies": {
     "browserify": "~6.3.3",
@@ -16,7 +17,8 @@
     "react-tools": "~0.12.1",
     "reactify": "~0.17.1",
     "vinyl-source-stream": "~1.0.0",
-    "jshint": "~2.5.10"
+    "jshint": "~2.5.10",
+    "gulp-concat-css": "~1.1.1"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/preprocessor.js",

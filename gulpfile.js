@@ -2,6 +2,7 @@ var browserify = require('browserify');
 var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var reactify = require('reactify');
+var concatCSS = require('gulp-concat-css');
 var exec = require('child_process').exec;
 
 gulp.task('jslint', function (cb) {
@@ -23,12 +24,13 @@ gulp.task('browserify', function(){
   b.add('./js/app.jsx');
   return b.bundle()
     .pipe(source('app.js'))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('styles', function() {
-  gulp.src('./css/**/*')
-    .pipe(gulp.dest('./dist'));
+gulp.task('css', function() {
+  gulp.src(['css/*.css', 'node_modules/normalize.css/normalize.css', 'css/gadget.css'])
+    .pipe(concatCSS('app.css'))
+    .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('default', ['jslint', 'browserify', 'styles']);
+gulp.task('default', ['jslint', 'browserify', 'css']);
