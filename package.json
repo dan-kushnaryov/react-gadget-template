@@ -14,7 +14,8 @@
     "nightwatch": "~0.5.34",
     "react-tools": "~0.12.1",
     "reactify": "~0.17.1",
-    "vinyl-source-stream": "~1.0.0"
+    "vinyl-source-stream": "~1.0.0",
+    "jshint": "~2.5.10"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/preprocessor.js",
