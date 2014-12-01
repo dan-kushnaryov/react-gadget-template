@@ -68,6 +68,8 @@ module.exports = {
       .frame(0)
 
       // Setup: Delete name and type a new one
+      // TODO maybe we can use keys() since the
+      // field should have focus?
       .setValue(ui.authorName, [
         browser.Keys.DELETE,
         browser.Keys.DELETE,

@@ -25,8 +25,25 @@ describe('Name', function() {
   describe('when editable', function() {
     it('should make the name editable', function() {
       var name = renderComponent(<Name editable={true} name="Lulu" />);
-      var foundName = findComponentByTag(name, 'input');
-      expect(foundName).toBeDefined();
+      var foundNameInput = findComponentByTag(name, 'input');
+      expect(foundNameInput).toBeDefined();
+    });
+
+    it('should focus on the editable name', function(done) {
+      var name = renderComponent(<Name editable={true} name="Lulu" />);
+      var foundNameInput = findComponentByTag(name, 'input');
+      expect(foundNameInput.getDOMNode()).toEqual(document.activeElement);
+    });
+
+  });
+
+  describe('when becoming editable', function() {
+    it('should focus on the editable name', function(done) {
+      var name = renderComponent(<Name editable={false} name="Lulu" />);
+      name.props.editable = true;
+      name.forceUpdate();
+      var foundNameInput = findComponentByTag(name, 'input');
+      expect(foundNameInput.getDOMNode()).toEqual(document.activeElement);
     });
   });
 });
