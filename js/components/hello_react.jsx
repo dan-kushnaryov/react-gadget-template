@@ -1,17 +1,29 @@
 var React = require('react');
-var VersalGadgetMixin = require('./mixins/versal');
-
 var Name = require('./name');
 
 var HelloReact = React.createClass({
-  mixins: [VersalGadgetMixin],
+  renderAuthorName: function() {
+    return (
+      <Name
+        className="authorName"
+        name={this.props.authorName}
+        editable={this.props.editable}
+        onNameChange={this.props.onAuthorNameChange} />
+    );
+  },
 
-  onNameChange: function(name) {
-    this.player.setAttributes({ name: name });
+  renderLearnerName: function() {
+    return (
+      <Name
+        className="learnerName"
+        name={this.props.learnerName}
+        editable={!this.props.editable}
+        onNameChange={this.props.onLearnerNameChange} />
+    );
   },
 
   render: function() {
-    var role = this.state.editable ? 'author' : 'learner';
+    var role = this.props.editable ? 'author' : 'learner';
     return (
       <div className="hello">
         <div>
@@ -20,10 +32,10 @@ var HelloReact = React.createClass({
         </div>
         <hr />
         <div>
-          Author: <Name
-                    name={this.state.name}
-                    editable={this.state.editable}
-                    onNameChange={this.onNameChange} />
+          Author: {this.renderAuthorName()}
+        </div>
+        <div>
+          Learner: {this.renderLearnerName()}
         </div>
       </div>
     );

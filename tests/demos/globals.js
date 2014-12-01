@@ -1,3 +1,3 @@
 module.exports = {
-  waitForConditionTimeout: 15000
+  waitForConditionTimeout: 35000
 };

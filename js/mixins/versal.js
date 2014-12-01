@@ -1,8 +1,8 @@
-VersalPlayerAPI = require('../../versal/player');
+VersalPlayerAPI = require('../versal/player');
 
 var VersalGadgetMixin = {
   getInitialState: function() {
-    return { editable: false };
+    return { ready: false };
   },
 
   componentWillMount: function() {
@@ -28,32 +28,35 @@ var VersalGadgetMixin = {
   },
 
   _onAttributesChanged: function(attributes) {
-    if (this.attributesWillUpdate) {
-      this.attributesWillUpdate(attributes);
-    }
     this.setState(attributes);
-    if (this.attributesDidUpdate) {
-      this.attributesDidUpdate(attributes);
+    if (this._attributesSet) {
+      return;
     }
+    this._attributesSet = true;
+    this._maybeReady();
   },
 
   _onLearnerStateChanged: function(learnerState) {
-    if (this.learnerStateWillUpdate) {
-      this.learnerStateWillUpdate(learnerState);
-    }
     this.setState(learnerState);
-    if (this.learnerStateDidUpdate) {
-      this.learnerStateDidUpdate(learnerState);
+    if (this._learnerStateSet) {
+      return;
     }
+    this._learnerStateSet = true;
+    this._maybeReady();
   },
 
   _onEditableChanged: function(editable) {
-    if (this.editableWillUpdate) {
-      this.editableWillUpdate(editable.editable);
-    }
     this.setState(editable);
-    if (this.editableDidUpdate) {
-      this.editableDidUpdate(editable.editable);
+    if (this._editableSet) {
+      return;
+    }
+    this._editableSet = true;
+    this._maybeReady();
+  },
+
+  _maybeReady: function() {
+    if (!this.state.ready && this._editableSet && this._learnerStateSet && this._attributesSet) {
+      this.setState({ ready: true });
     }
   }
 };
