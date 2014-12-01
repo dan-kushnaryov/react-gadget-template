@@ -67,12 +67,9 @@ module.exports = {
       .jqueryDoubleClick(ui.gadgetInTray)
       .frame(0)
 
-      // Setup: Delete name and type a new one
-      // TODO maybe we can use keys() since the
-      // field should have focus?
-      .setValue(ui.authorName, 'Theodora')
+      // Setup: Type a new name
+      .keys('Theodora')
       .pause(500).saveScreenshot('images/author-typed-name.png')
-      .pause(500)
 
       // Setup: refresh the browser
       .refresh()
