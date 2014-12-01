@@ -19,21 +19,20 @@ describe('Name', function() {
 
   it('should show the name', function() {
     var name = renderComponent(<Name name="Lulu" />);
-    var foundName = findComponentByClass(name, 'name');
-    expect(foundName.getDOMNode().textContent).toEqual('Lulu');
+    expect(name.getDOMNode().textContent).toEqual('Lulu');
   });
 
   describe('when editable', function() {
     it('should make the name editable', function() {
       var name = renderComponent(<Name editable={true} name="Lulu" />);
+      // If there's a text input that should be sufficient
       var foundNameInput = findComponentByTag(name, 'input');
       expect(foundNameInput).toBeDefined();
     });
 
     it('should focus on the editable name', function(done) {
       var name = renderComponent(<Name editable={true} name="Lulu" />);
-      var foundNameInput = findComponentByTag(name, 'input');
-      expect(foundNameInput.getDOMNode()).toEqual(document.activeElement);
+      expect(name.getDOMNode()).toEqual(document.activeElement);
     });
 
     describe('when the name changes', function(){
@@ -65,8 +64,7 @@ describe('Name', function() {
       var name = renderComponent(<Name editable={false} name="Lulu" />);
       name.props.editable = true;
       name.forceUpdate();
-      var foundNameInput = findComponentByTag(name, 'input');
-      expect(foundNameInput.getDOMNode()).toEqual(document.activeElement);
+      expect(name.getDOMNode()).toEqual(document.activeElement);
     });
   });
 });
