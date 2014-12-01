@@ -12,8 +12,8 @@ var simulate = TestUtils.Simulate;
 describe('Name', function() {
 
   it('should render', function() {
-    var name = renderComponent(<Name />);
-    var foundName = findComponentByClass(name, 'name');
+    var name = renderComponent(<Name className="adminName" />);
+    var foundName = findComponentByClass(name, 'adminName');
     expect(foundName).toBeDefined();
   });
 

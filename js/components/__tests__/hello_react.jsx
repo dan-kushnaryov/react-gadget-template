@@ -1,7 +1,7 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-jest.dontMock('../mixins/versal');
+jest.dontMock('../../mixins/versal');
 jest.dontMock('../hello_react');
 var HelloReact = require('../hello_react');
 
@@ -26,7 +26,8 @@ describe('HelloReact', function() {
     it('should indicate author role', function() {
       var hello = renderComponent(<HelloReact />);
       var foundRole = findComponent(hello, 'role');
-      hello.setState({ editable: true });
+      hello.props.editable = true;
+      hello.forceUpdate();
       expect(foundRole.getDOMNode().textContent).toEqual('author');
     });
   });

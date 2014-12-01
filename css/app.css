@@ -7,6 +7,6 @@ body {
   float: right;
 }
 
-.name {
+.authorName, .learnerName {
   display: inline-block;
 }
