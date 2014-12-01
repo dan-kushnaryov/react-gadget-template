@@ -1,7 +1,11 @@
 var React = require('react');
 
 var Name = React.createClass({
-  getInitialState: function() { return {}; },
+  getDefaultProps: function() {
+    return {
+      name: 'Anonymous'
+    };
+  },
 
   renderInput: function() {
     return (

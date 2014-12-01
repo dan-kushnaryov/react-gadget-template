@@ -6,10 +6,6 @@ var Name = require('./name');
 var HelloReact = React.createClass({
   mixins: [VersalGadgetMixin],
 
-  getInitialState: function() {
-    return { name: 'Lulu' };
-  },
-
   onNameChange: function(name) {
     this.player.setAttributes({ name: name });
   },

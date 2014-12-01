@@ -70,13 +70,7 @@ module.exports = {
       // Setup: Delete name and type a new one
       // TODO maybe we can use keys() since the
       // field should have focus?
-      .setValue(ui.authorName, [
-        browser.Keys.DELETE,
-        browser.Keys.DELETE,
-        browser.Keys.DELETE,
-        browser.Keys.DELETE,
-        'Theodora'
-      ])
+      .setValue(ui.authorName, 'Theodora')
       .pause(500).saveScreenshot('images/author-typed-name.png')
       .pause(500)
 

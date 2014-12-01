@@ -17,7 +17,12 @@ describe('Name', function() {
     expect(foundName).toBeDefined();
   });
 
-  it('should show the name', function() {
+  it('should show the default name', function() {
+    var name = renderComponent(<Name />);
+    expect(name.getDOMNode().textContent).toEqual('Anonymous');
+  });
+
+  it('should show the specified name', function() {
     var name = renderComponent(<Name name="Lulu" />);
     expect(name.getDOMNode().textContent).toEqual('Lulu');
   });
