@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var React = require('react');
 var Name = require('./name');
 
@@ -22,6 +23,16 @@ var HelloReact = React.createClass({
     );
   },
 
+  renderSmilies: function() {
+    var smilies = [];
+    _.each(_.range(this.props.numberOfSmilies), function() {
+      smilies.push('(:');
+    });
+    return (
+      <span>{smilies.join('')}</span>
+    );
+  },
+
   render: function() {
     var role = this.props.editable ? 'author' : 'learner';
     return (
@@ -34,6 +45,7 @@ var HelloReact = React.createClass({
         <div>
           Author: {this.renderAuthorName()}
         </div>
+        <div className="smilies">{this.renderSmilies()}</div>
         <div>
           Learner: {this.renderLearnerName()}
         </div>
