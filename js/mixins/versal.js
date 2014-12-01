@@ -8,7 +8,6 @@ var VersalGadgetMixin = {
   componentWillMount: function() {
     this.player = new VersalPlayerAPI();
 
-    // Retrigger on component if hooks exist
     this.player.on('attributesChanged', this._onAttributesChanged);
     this.player.on('learnerStateChanged', this._onLearnerStateChanged);
     this.player.on('editableChanged', this._onEditableChanged);
