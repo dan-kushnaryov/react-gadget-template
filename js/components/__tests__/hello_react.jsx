@@ -16,14 +16,14 @@ describe('HelloReact', function() {
     expect(foundHello).toBeDefined();
   });
 
-  it('should indicate the user is a learner', function() {
+  it('should indicate learner role', function() {
     var hello = renderComponent(<HelloReact />);
     var foundRole = findComponent(hello, 'role');
     expect(foundRole.getDOMNode().textContent).toEqual('learner');
   });
 
   describe('when editable', function() {
-    it('should indicate the user is an author', function() {
+    it('should indicate author role', function() {
       var hello = renderComponent(<HelloReact />);
       var foundRole = findComponent(hello, 'role');
       hello.setState({ editable: true });
