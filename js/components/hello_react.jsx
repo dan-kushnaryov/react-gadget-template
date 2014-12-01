@@ -29,7 +29,7 @@ var HelloReact = React.createClass({
       smilies.push('(:');
     });
     return (
-      <span>{smilies.join('')}</span>
+      <span className="smilies">{smilies.join('')}</span>
     );
   },
 
