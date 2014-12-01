@@ -1,4 +1,5 @@
-VersalPlayerAPI = require('../versal/player');
+var _ = require('underscore');
+var VersalPlayerAPI = require('../versal/player');
 
 var VersalGadgetMixin = {
   getInitialState: function() {
@@ -7,7 +8,6 @@ var VersalGadgetMixin = {
 
   componentWillMount: function() {
     this.player = new VersalPlayerAPI();
-    this.initializePropertySheets();
 
     this.player.on('attributesChanged', this._onAttributesChanged);
     this.player.on('learnerStateChanged', this._onLearnerStateChanged);
@@ -61,10 +61,30 @@ var VersalGadgetMixin = {
     this._maybeReady();
   },
 
+  _getDefaultAttributes: function() {
+    if (this.getDefaultAttributes) {
+      return this.getDefaultAttributes();
+    } else {
+      return {};
+    }
+  },
+
+  _getDefaultLearnerState: function() {
+    if (this.getDefaultLearnerState) {
+      return this.getDefaultLearnerState();
+    } else {
+      return {};
+    }
+  },
+
   _maybeReady: function() {
     if (!this.state.ready && this._editableSet && this._learnerStateSet && this._attributesSet) {
-      this.setState({ ready: true });
+      var state = _.extend({}, this.state, { ready: true });
+      state = _.defaults(state, this._getDefaultAttributes(), this._getDefaultLearnerState());
+      this.player.setAttributes({numberOfSmiles: state.numberOfSmiles});
+      this.setState(state);
     }
+    this.initializePropertySheets();
   }
 };
 
