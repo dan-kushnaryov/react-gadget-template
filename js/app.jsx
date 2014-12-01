@@ -10,10 +10,16 @@ var VersalGadgetMixin = require('./mixins/versal');
 var HelloReactController = React.createClass({
   mixins: [VersalGadgetMixin],
 
+  getDefaultAttributes: function() {
+    return {
+      numberOfSmiles: 3
+    };
+  },
+
   getPropertySheetAttributes: function() {
     return {
       numberOfSmiles: { type: 'Select',
-        options: [1, 2, 3]
+        options: [1, 2, 3, 4]
       }
     };
   },

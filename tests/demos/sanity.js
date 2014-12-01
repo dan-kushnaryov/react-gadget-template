@@ -138,24 +138,25 @@ module.exports = {
       .jqueryDoubleClick(ui.gadgetInTray)
 
       // Setup: set value on property sheet
-      .setValue(ui.numberOfSmilesPropSheet, '2')
+      .waitForElementPresent(ui.numberOfSmilesPropSheet)
+      .setValue(ui.numberOfSmilesPropSheet, 1)
       .pause(500).saveScreenshot('images/learner-changed-property-sheet.png')
+
+      // Assert: the correct number of smiles are present
+      .frame(0)
+      .waitForElementPresent(ui.smiles)
+      .assert.containsText(ui.smiles, '(:')
+      .pause(500).saveScreenshot('images/learner-refreshed.png')
+
+      // Setup: set value on property sheet
+      .frameParent(0)
+      .setValue(ui.numberOfSmilesPropSheet, 2)
+      .pause(500).saveScreenshot('images/learner-changed-property-sheet-again.png')
 
       // Assert: the correct number of smiles are present
       .frame(0)
       .waitForElementPresent(ui.smiles)
       .assert.containsText(ui.smiles, '(:(:')
-      .pause(500).saveScreenshot('images/learner-refreshed.png')
-
-      // Setup: set value on property sheet
-      .frameParent(0)
-      .setValue(ui.numberOfSmilesPropSheet, '3')
-      .pause(500).saveScreenshot('images/learner-changed-property-sheet.png')
-
-      // Assert: the correct number of smiles are present
-      .frame(0)
-      .waitForElementPresent(ui.smiles)
-      .assert.containsText(ui.smiles, '(:(:(:')
       .pause(500).saveScreenshot('images/learner-refreshed.png')
 
       // Cleanup: delete gadget
