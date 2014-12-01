@@ -7,10 +7,18 @@ var VersalGadgetMixin = {
 
   componentWillMount: function() {
     this.player = new VersalPlayerAPI();
+    this.initializePropertySheets();
 
     this.player.on('attributesChanged', this._onAttributesChanged);
     this.player.on('learnerStateChanged', this._onLearnerStateChanged);
     this.player.on('editableChanged', this._onEditableChanged);
+  },
+
+  initializePropertySheets: function() {
+    if (this.getPropertySheetAttributes) {
+      var attributes = this.getPropertySheetAttributes();
+      this.player.setPropertySheetAttributes(attributes);
+    }
   },
 
   componentDidMount: function() {

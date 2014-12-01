@@ -125,5 +125,47 @@ module.exports = {
       .click(ui.gadgetConfirmDelete)
       .waitForElementNotPresent(ui.gadgetInLesson)
       .end();
+  },
+
+  'Author changes the number of smiles': function(browser) {
+    ui.smiles = '.smiles';
+    ui.numberOfSmilesPropSheet = '#numberOfSmiles';
+    ui.learnerName = '.learnerName';
+
+    browser
+      // Background: add a gadget
+      .waitForElementPresent(ui.gadgetInTray)
+      .jqueryDoubleClick(ui.gadgetInTray)
+
+      // Setup: set value on property sheet
+      .setValue(ui.numberOfSmilesPropSheet, '2')
+      .pause(500).saveScreenshot('images/learner-changed-property-sheet.png')
+
+      // Assert: the correct number of smiles are present
+      .frame(0)
+      .waitForElementPresent(ui.smiles)
+      .assert.containsText(ui.smiles, '(:(:')
+      .pause(500).saveScreenshot('images/learner-refreshed.png')
+
+      // Setup: set value on property sheet
+      .frameParent(0)
+      .setValue(ui.numberOfSmilesPropSheet, '3')
+      .pause(500).saveScreenshot('images/learner-changed-property-sheet.png')
+
+      // Assert: the correct number of smiles are present
+      .frame(0)
+      .waitForElementPresent(ui.smiles)
+      .assert.containsText(ui.smiles, '(:(:(:')
+      .pause(500).saveScreenshot('images/learner-refreshed.png')
+
+      // Cleanup: delete gadget
+      .frameParent() // get back to the player iframe
+      .waitForElementPresent(ui.gadgetDelete)
+      .click(ui.gadgetWrapper) // strange way to make the delete icon visible
+      .click(ui.gadgetDelete)
+      .waitForElementPresent(ui.gadgetConfirmDelete)
+      .click(ui.gadgetConfirmDelete)
+      .waitForElementNotPresent(ui.gadgetInLesson)
+      .end();
   }
 };
