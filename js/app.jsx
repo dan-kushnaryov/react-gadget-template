@@ -12,7 +12,7 @@ var HelloReactController = React.createClass({
 
   getPropertySheetAttributes: function() {
     return {
-      numberOfSmilies: { type: 'Select',
+      numberOfSmiles: { type: 'Select',
         options: [1, 2, 3]
       }
     };

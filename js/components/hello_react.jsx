@@ -23,13 +23,12 @@ var HelloReact = React.createClass({
     );
   },
 
-  renderSmilies: function() {
-    var smilies = [];
-    _.each(_.range(this.props.numberOfSmilies), function() {
-      smilies.push('(:');
-    });
+  renderSmiles: function() {
+    var smiles = _.reduce(_.range(this.props.numberOfSmiles), function(smilesString) {
+      return smilesString + '(:';
+    }, '');
     return (
-      <span className="smilies">{smilies.join('')}</span>
+      <span className="smiles">{smiles}</span>
     );
   },
 
@@ -45,7 +44,7 @@ var HelloReact = React.createClass({
         <div>
           Author: {this.renderAuthorName()}
         </div>
-        <div className="smilies">{this.renderSmilies()}</div>
+        <div className="smiles">{this.renderSmiles()}</div>
         <div>
           Learner: {this.renderLearnerName()}
         </div>
