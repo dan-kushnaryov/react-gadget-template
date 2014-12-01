@@ -3,7 +3,9 @@ var ui = {
   gadgetInLesson: '.gadgetContent',
   gadgetEditToggle: '.js-edit',
   gadgetDelete: '.js-trash',
-  gadgetConfirmDelete: '.js-delete'
+  gadgetConfirmDelete: '.js-delete',
+  gadgetNameInput: 'input',
+  gadgetToolbar: '.toolbar'
 };
 
 module.exports = {
@@ -16,15 +18,15 @@ module.exports = {
 
   'Default authoring': function(browser) {
     browser
-      // setup
+      // Background: add a gadget
       .waitForElementPresent(ui.gadgetInTray)
       .jqueryDoubleClick(ui.gadgetInTray)
       .waitForElementPresent(ui.gadgetInLesson)
 
-      // assert
-      .pause(500).saveScreenshot('images/default-authoring.png')
+      // Assert: nothing to assert, just take a screenshot
+      .pause(500).saveScreenshot('images/author-added-gadget.png')
 
-      // cleanup
+      // Cleanup: get rid of the gadget
       .click(ui.gadgetDelete)
       .waitForElementPresent(ui.gadgetConfirmDelete)
       .pause(500)
@@ -35,19 +37,55 @@ module.exports = {
 
   'Default learning': function(browser) {
     browser
-      // setup
+      // Background: add a gadget
       .waitForElementPresent(ui.gadgetInTray)
       .jqueryDoubleClick(ui.gadgetInTray)
       .waitForElementPresent(ui.gadgetInLesson)
 
-      // assert
+      // Setup: toggle to learning
       .click(ui.gadgetEditToggle)
-      .pause(500).saveScreenshot('images/default-learning.png')
 
-      // cleanup
+      // Assert: nothing to assert, just take a screenshot
+      .pause(500).saveScreenshot('images/author-toggled-to-learner.png')
+
+      // Cleanup: delete the gadget
       .click(ui.gadgetDelete)
       .waitForElementPresent(ui.gadgetConfirmDelete)
       .pause(500)
+      .click(ui.gadgetConfirmDelete)
+      .waitForElementNotPresent(ui.gadgetInLesson)
+      .end();
+  },
+
+  'Author saves their name': function(browser) {
+    ui.authorName = '.name';
+    ui.gadgetWrapper = '.gadget';
+
+    browser
+      // Background: add a gadget
+      .waitForElementPresent(ui.gadgetInTray)
+      .jqueryDoubleClick(ui.gadgetInTray)
+      .frame(0)
+
+      // Setup: Type a new name
+      .keys('Theodora')
+      .pause(500).saveScreenshot('images/author-typed-name.png')
+
+      // Setup: refresh the browser
+      .refresh()
+      .frame(0).frame(0) // get back to the gadget iframe
+      .waitForElementPresent(ui.authorName)
+
+      // Assert: the author's new name appears
+      .assert.containsText(ui.authorName, 'Theodora')
+      .pause(500).saveScreenshot('images/author-refreshed.png')
+
+      // Cleanup: delete gadget
+      .frameParent() // get back to the player iframe
+      .waitForElementPresent(ui.gadgetDelete)
+      .click(ui.gadgetWrapper) // strange way to make the delete icon visible
+      .click(ui.gadgetDelete)
+      .waitForElementPresent(ui.gadgetConfirmDelete)
       .click(ui.gadgetConfirmDelete)
       .waitForElementNotPresent(ui.gadgetInLesson)
       .end();

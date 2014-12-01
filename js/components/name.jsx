@@ -1,7 +1,11 @@
 var React = require('react');
 
 var Name = React.createClass({
-  getInitialState: function() { return {}; },
+  getDefaultProps: function() {
+    return {
+      name: 'Anonymous'
+    };
+  },
 
   renderInput: function() {
     return (
@@ -29,7 +33,15 @@ var Name = React.createClass({
 
   onKeyUp: function() {
     var name = this.refs.name.getDOMNode().value;
-    this.props.onNameChange(name);
+    if (name != this.props.name) {
+      this.props.onNameChange(name);
+    }
+  },
+
+  componentDidMount: function() {
+    if (this.props.editable) {
+      this.refs.name.getDOMNode().focus();
+    }
   },
 
   componentDidUpdate: function() {
