@@ -21,7 +21,7 @@
     "gulp-concat-css": "~1.1.1"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "scriptPreprocessor": "<rootDir>/test/utils/preprocessor.js",
     "moduleFileExtensions": [
       "js",
       "jsx"
