@@ -1,6 +1,14 @@
 var React = require('react');
 
 var Name = React.createClass({
+
+  propTypes: {
+    className: React.PropTypes.string,
+    name: React.PropTypes.string,
+    editable: React.PropTypes.bool.isRequired,
+    onNameChange: React.PropTypes.func.isRequired
+  },
+
   getDefaultProps: function() {
     return {
       name: 'Anonymous'

@@ -6,6 +6,10 @@ var React = require('react');
 
 var Smiles = React.createClass({
 
+  propTypes: {
+    numberOfSmiles: React.PropTypes.string.isRequired
+  },
+
   render: function() {
     var smiles = _.reduce(_.range(this.props.numberOfSmiles), function(smilesString) {
       return smilesString + '(:';
