@@ -9,10 +9,7 @@ var ui = {
 
 module.exports = {
   beforeEach: function(browser) {
-    browser
-      .url('http://127.0.0.1:6952')
-      .resizeWindow(1600, 900)
-      .frame(0)
+    browser.previewGadget();
   },
 
   'Author saves their name': function(browser) {
