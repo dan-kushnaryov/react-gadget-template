@@ -27,7 +27,8 @@ module.exports = {
 
       // Cleanup: get rid of the gadget
       .waitForElementPresent(ui.gadgetDelete)
-      .click(ui.gadgetWrapper) // strange way to make the delete icon visible
+      // strange way to make the delete icon visible
+      .click(ui.gadgetWrapper)
       .click(ui.gadgetDelete)
       .waitForElementPresent(ui.gadgetConfirmDelete)
       .click(ui.gadgetConfirmDelete)
@@ -50,7 +51,8 @@ module.exports = {
 
       // Cleanup: delete the gadget
       .waitForElementPresent(ui.gadgetDelete)
-      .click(ui.gadgetWrapper) // strange way to make the delete icon visible
+      // strange way to make the delete icon visible
+      .click(ui.gadgetWrapper)
       .click(ui.gadgetDelete)
       .waitForElementPresent(ui.gadgetConfirmDelete)
       .click(ui.gadgetConfirmDelete)

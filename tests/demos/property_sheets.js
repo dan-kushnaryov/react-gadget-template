@@ -49,7 +49,8 @@ module.exports = {
       // Cleanup: delete gadget
       .frameParent() // get back to the player iframe
       .waitForElementPresent(ui.gadgetDelete)
-      .click(ui.gadgetWrapper) // strange way to make the delete icon visible
+      // strange way to make the delete icon visible
+      .click(ui.gadgetWrapper)
       .click(ui.gadgetDelete)
       .waitForElementPresent(ui.gadgetConfirmDelete)
       .click(ui.gadgetConfirmDelete)
