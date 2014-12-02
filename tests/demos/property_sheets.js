@@ -17,9 +17,8 @@ module.exports = {
     ui.learnerName = '.learnerName';
 
     browser
-      // Background: add a gadget
-      .waitForElementPresent(ui.gadgetInTray)
-      .jqueryDoubleClick(ui.gadgetInTray)
+      // Background
+      .addGadgetToLesson()
 
       // Setup: set value on property sheet
       .waitForElementPresent(ui.numberOfSmilesPropSheet)

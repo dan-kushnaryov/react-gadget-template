@@ -16,10 +16,8 @@ module.exports = {
     ui.authorName = '.authorName';
 
     browser
-      // Background: add a gadget
-      .waitForElementPresent(ui.gadgetInTray)
-      .jqueryDoubleClick(ui.gadgetInTray)
-      .frame(0)
+      // Background
+      .addGadgetToLesson()
 
       // Setup: Type a new name
       .keys('Theodora')
@@ -50,9 +48,8 @@ module.exports = {
     ui.learnerName = '.learnerName';
 
     browser
-      // Background: add a gadget
-      .waitForElementPresent(ui.gadgetInTray)
-      .jqueryDoubleClick(ui.gadgetInTray)
+      // Background
+      .addGadgetToLesson()
 
       // Setup: toggle to learning
       // strange way to make the delete icon visible

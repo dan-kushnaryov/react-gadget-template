@@ -14,10 +14,8 @@ module.exports = {
 
   'Default authoring': function(browser) {
     browser
-      // Background: add a gadget
-      .waitForElementPresent(ui.gadgetInTray)
-      .jqueryDoubleClick(ui.gadgetInTray)
-      .waitForElementPresent(ui.gadgetInLesson)
+      // Background
+      .addGadgetToLesson()
 
       // Assert: nothing to assert, just take a screenshot
       .pause(500).saveScreenshot('images/author-added-gadget.png')
@@ -35,10 +33,8 @@ module.exports = {
 
   'Default learning': function(browser) {
     browser
-      // Background: add a gadget
-      .waitForElementPresent(ui.gadgetInTray)
-      .jqueryDoubleClick(ui.gadgetInTray)
-      .waitForElementPresent(ui.gadgetInLesson)
+      // Background
+      .addGadgetToLesson()
 
       // Setup: toggle to learning
       .click(ui.gadgetEditToggle)
