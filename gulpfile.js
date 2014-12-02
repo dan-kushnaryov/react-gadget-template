@@ -19,6 +19,9 @@ gulp.task('lint', function (callback) {
 });
 
 gulp.task('run-demos', function (callback) {
+  // If this breaks down for you you can always run
+  // `versal preview --port 6952` and then `nightwatch`
+  // in a second terminal and forgo the automation.
   var demos = spawn('./scripts/demos.js');
   demos.stdout.pipe(process.stdout);
   demos.stderr.pipe(process.stderr);
