@@ -1,8 +1,16 @@
 var _ = require('underscore');
 var React = require('react');
 var Name = require('./name');
+var Smiles = require('./smiles');
 
 var HelloReact = React.createClass({
+
+  propTypes: {
+    editable: React.PropTypes.bool.isRequired,
+    onAuthorNameChanged: React.PropTypes.func.isRequired,
+    onLearnerNameChanged: React.PropTypes.func.isRequired,
+  },
+
   renderAuthorName: function() {
     return (
       <Name
@@ -23,19 +31,10 @@ var HelloReact = React.createClass({
     );
   },
 
-  renderSmiles: function() {
-    var smiles = _.reduce(_.range(this.props.numberOfSmiles), function(smilesString) {
-      return smilesString + '(:';
-    }, '');
-    return (
-      <span className="smiles">{smiles}</span>
-    );
-  },
-
   render: function() {
     var role = this.props.editable ? 'author' : 'learner';
     return (
-      <div className="hello">
+      <div className="hello-react">
         <div>
           Hello ReactJs + Versal!
           <span className="role">{role}</span>
@@ -44,7 +43,7 @@ var HelloReact = React.createClass({
         <div>
           Author: {this.renderAuthorName()}
         </div>
-        <div className="smiles">{this.renderSmiles()}</div>
+        <Smiles numberOfSmiles={this.props.numberOfSmiles} />
         <div>
           Learner: {this.renderLearnerName()}
         </div>

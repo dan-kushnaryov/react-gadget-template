@@ -12,7 +12,7 @@ describe('HelloReact', function() {
 
   it('should render', function() {
     var hello = renderComponent(<HelloReact />);
-    var foundHello = findComponent(hello, 'hello');
+    var foundHello = findComponent(hello, 'hello-react');
     expect(foundHello).toBeDefined();
   });
 

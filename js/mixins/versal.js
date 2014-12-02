@@ -81,7 +81,6 @@ var VersalGadgetMixin = {
     if (!this.state.ready && this._editableSet && this._learnerStateSet && this._attributesSet) {
       var state = _.extend({}, this.state, { ready: true });
       state = _.defaults(state, this._getDefaultAttributes(), this._getDefaultLearnerState());
-      this.player.setAttributes({numberOfSmiles: state.numberOfSmiles});
       this.setState(state);
     }
     this.initializePropertySheets();
