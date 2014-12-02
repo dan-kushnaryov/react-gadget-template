@@ -37,14 +37,12 @@ var HelloReactController = React.createClass({
       return null;
     }
 
-    var callbacks = _.pick(this, [
-      'onAuthorNameChange',
-      'onLearnerNameChange'
-    ]);
-
-    var props = _.extend({}, this.state, callbacks);
-
-    return <HelloReact {...props} />;
+    return (
+      <HelloReact
+        {...this.state}
+        onAuthorNameChange={this.onAuthorNameChange}
+        onLearnerNameChange={this.onLearnerNameChange} />
+    );
   }
 });
 
