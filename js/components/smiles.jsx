@@ -7,7 +7,7 @@ var React = require('react');
 var Smiles = React.createClass({
 
   propTypes: {
-    numberOfSmiles: React.PropTypes.string.isRequired
+    numberOfSmiles: React.PropTypes.number.isRequired
   },
 
   render: function() {
