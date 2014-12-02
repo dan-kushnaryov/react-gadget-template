@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Transform jsx and lint the results
+
 set -e
 
 JSX_BIN=./node_modules/react-tools/bin/jsx
