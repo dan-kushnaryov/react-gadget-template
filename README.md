@@ -23,19 +23,11 @@ gulp
 ## Unit tests
 
 ```
-npm test
+gulp test
 ```
 
 ## Acceptance tests
 
-Launch preview manually (for now)
-
 ```
-versal preview
-```
-
-Then run the tests with [nightwatch](http://nightwatchjs.org)
-
-```
-nightwatch
+gulp demos
 ```
