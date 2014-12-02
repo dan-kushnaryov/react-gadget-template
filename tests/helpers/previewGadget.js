@@ -1,4 +1,4 @@
-exports.command = function (selector) {
+exports.command = function () {
   var browser = this;
 
   browser
