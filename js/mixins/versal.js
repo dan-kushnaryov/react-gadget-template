@@ -9,6 +9,8 @@ var VersalGadgetMixin = {
   componentWillMount: function() {
     this.player = new VersalPlayerAPI();
 
+    this._debouncePlayerSetters();
+
     this.player.on('attributesChanged', this._onAttributesChanged);
     this.player.on('learnerStateChanged', this._onLearnerStateChanged);
     this.player.on('editableChanged', this._onEditableChanged);
@@ -32,6 +34,11 @@ var VersalGadgetMixin = {
     this.player.off('attributesChanged', this._onAttributesChanged);
     this.player.off('learnerStateChanged', this._onLearnerStateChanged);
     this.player.off('editableChanged', this._onEditableChanged);
+  },
+
+  _debouncePlayerSetters: function() {
+    this.player.setAttributes = _.debounce(this.player.setAttributes.bind(this.player), 200);
+    this.player.setLearnerState = _.debounce(this.player.setLearnerState.bind(this.player), 200);
   },
 
   _onAttributesChanged: function(attributes) {
