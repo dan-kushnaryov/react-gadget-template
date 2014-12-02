@@ -12,9 +12,11 @@ var Name = React.createClass({
       return null;
     }
 
+    var className = 'name ' + this.props.className;
+
     return (
       <input
-        className={this.props.className}
+        className={className}
         ref="name"
         type="text"
         placeholder="Enter your name"
@@ -24,8 +26,10 @@ var Name = React.createClass({
   },
 
   renderLabel: function() {
+    var className = 'name ' + this.props.className;
+
     return (
-      <div className={this.props.className}>
+      <div className={className}>
         {this.props.name}
       </div>
     );

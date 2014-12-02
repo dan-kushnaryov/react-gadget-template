@@ -28,7 +28,7 @@ gulp.task('browserify', function(){
 });
 
 gulp.task('css', function() {
-  gulp.src(['css/*.css', 'node_modules/normalize.css/normalize.css', 'css/gadget.css'])
+  gulp.src(['css/**/*.css', 'node_modules/normalize.css/normalize.css', 'css/gadget.css'])
     .pipe(concatCSS('app.css'))
     .pipe(gulp.dest('dist/'))
 });
