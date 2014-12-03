@@ -54,11 +54,13 @@ gulp test
 
 ## Run demos
 
+Start the `versal preview` command and run selenium test suite against it
+
 ```
 gulp demos
 ```
 
-Any arguments are passed to `nightwatch`. For example if you want to run a single group of tests:
+Any arguments are passed to `nightwatch`. For example if you want to run a single group of tests
 
 ```
 gulp demos --group sanity
