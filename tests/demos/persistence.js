@@ -1,9 +1,5 @@
 var ui = {
-  gadgetInTray: '.tray-gadget',
-  gadgetInLesson: '.gadgetContent',
   gadgetEditToggle: '.js-edit',
-  gadgetDelete: '.js-trash',
-  gadgetConfirmDelete: '.js-delete',
   gadgetWrapper: '.gadget'
 };
 

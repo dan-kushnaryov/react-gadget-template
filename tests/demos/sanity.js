@@ -1,10 +1,5 @@
 var ui = {
-  gadgetInTray: '.tray-gadget',
-  gadgetInLesson: '.gadgetContent',
-  gadgetEditToggle: '.js-edit',
-  gadgetDelete: '.js-trash',
-  gadgetWrapper: '.gadget',
-  gadgetConfirmDelete: '.js-delete'
+  gadgetEditToggle: '.js-edit'
 };
 
 module.exports = {
