@@ -21,7 +21,8 @@ module.exports = {
 
       // Setup: refresh the browser
       .pause(500).refresh()
-      .frame(0).frame(0) // get back to the gadget iframe
+      // get back to the gadget iframe
+      .frame(0).frame(0)
       .waitForElementPresent(ui.authorName)
 
       // Assert: the author's new name appears
@@ -51,7 +52,8 @@ module.exports = {
 
       // Setup: refresh the browser
       .pause(500).refresh()
-      .frame(0).frame(0) // get back to the gadget iframe
+      // get back to the gadget iframe
+      .frame(0).frame(0)
       .waitForElementPresent(ui.learnerName)
 
       // Assert: the author's new name appears
