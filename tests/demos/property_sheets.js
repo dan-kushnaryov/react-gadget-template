@@ -42,15 +42,8 @@ module.exports = {
       .assert.containsText(ui.smiles, '(:(:')
       .pause(500).saveScreenshot('images/learner-refreshed.png')
 
-      // Cleanup: delete gadget
-      .frameParent() // get back to the player iframe
-      .waitForElementPresent(ui.gadgetDelete)
-      // strange way to make the delete icon visible
-      .click(ui.gadgetWrapper)
-      .click(ui.gadgetDelete)
-      .waitForElementPresent(ui.gadgetConfirmDelete)
-      .click(ui.gadgetConfirmDelete)
-      .waitForElementNotPresent(ui.gadgetInLesson)
+      // Cleanup
+      .removeGadgetFromLesson()
       .end();
   }
 };

@@ -20,14 +20,11 @@ module.exports = {
       // Assert: nothing to assert, just take a screenshot
       .pause(500).saveScreenshot('images/author-added-gadget.png')
 
-      // Cleanup: get rid of the gadget
-      .waitForElementPresent(ui.gadgetDelete)
-      // strange way to make the delete icon visible
-      .click(ui.gadgetWrapper)
-      .click(ui.gadgetDelete)
-      .waitForElementPresent(ui.gadgetConfirmDelete)
-      .click(ui.gadgetConfirmDelete)
-      .waitForElementNotPresent(ui.gadgetInLesson)
+      // Cleanup
+      // TODO make removeGadgetFromLesson deal with
+      // making sure we're at the correct frame
+      .frame(0) // TEMP
+      .removeGadgetFromLesson()
       .end();
   },
 
@@ -42,14 +39,11 @@ module.exports = {
       // Assert: nothing to assert, just take a screenshot
       .pause(500).saveScreenshot('images/author-toggled-to-learner.png')
 
-      // Cleanup: delete the gadget
-      .waitForElementPresent(ui.gadgetDelete)
-      // strange way to make the delete icon visible
-      .click(ui.gadgetWrapper)
-      .click(ui.gadgetDelete)
-      .waitForElementPresent(ui.gadgetConfirmDelete)
-      .click(ui.gadgetConfirmDelete)
-      .waitForElementNotPresent(ui.gadgetInLesson)
+      // Cleanup
+      // TODO make removeGadgetFromLesson deal with
+      // making sure we're at the correct frame
+      .frame(0) // TEMP
+      .removeGadgetFromLesson()
       .end();
   }
 };
