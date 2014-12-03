@@ -1,5 +1,5 @@
 var _ = require('underscore');
-var VersalPlayerAPI = require('../versal/player');
+var VersalPlayerAPI = require('versal_player_api');
 
 var VersalGadgetMixin = {
   getInitialState: function() {
