@@ -63,8 +63,8 @@ gulp.task('css', function() {
   var filter = Filter('**/*.styl');
 
   return gulp.src([
-      'components/normalize-css/normalize.css',
-      'components/versal-gadget-api/versal-gadget-theme.css',
+      'bower_components/normalize-css/normalize.css',
+      'bower_components/versal-gadget-api/versal-gadget-theme.css',
       './css/**/*.styl'
     ])
     .pipe(filter)
