@@ -48,7 +48,8 @@ gulp.task('bundle', function(){
     extensions: ['.jsx']
   });
   var globalShimTransform = globalShim.configure({
-    'react': 'React'
+    'react': 'React',
+    'versal_player_api': 'VersalPlayerAPI'
   });
   b.transform(reactify);
   b.transform(globalShimTransform);
@@ -62,8 +63,8 @@ gulp.task('css', function() {
   var filter = Filter('**/*.styl');
 
   return gulp.src([
-      'node_modules/normalize.css/normalize.css',
-      'css/gadget.css',
+      'components/normalize-css/normalize.css',
+      'components/versal-gadget-api/versal-gadget-theme.css',
       './css/**/*.styl'
     ])
     .pipe(filter)

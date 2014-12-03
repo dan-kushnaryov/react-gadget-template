@@ -1,13 +1,11 @@
 {
   "scripts": {
-    "install": "gulp",
+    "install": "bower install && gulp && npm test",
     "test": "jest"
   },
   "dependencies": {
     "react": "~0.12.1",
-    "underscore": "~1.7.0",
-    "normalize.css": "~3.0.2",
-    "wolfy87-eventemitter": "~4.2.9"
+    "underscore": "~1.7.0"
   },
   "devDependencies": {
     "browserify": "~6.3.3",
