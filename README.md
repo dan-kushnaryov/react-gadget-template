@@ -1,6 +1,30 @@
 # React gadget template [![Build Status](https://travis-ci.org/possibilities/react-gadget-template.svg?branch=master)](https://travis-ci.org/possibilities/react-gadget-template)
 
-## Prerequisites
+## Summary
+
+A hyper opinionated template for making [Versal](https://versal.com/gadgets) gadgets with [ReactJs](http://facebook.github.io/react/).
+
+### Usage
+
+#### Create a gadget from the template
+
+Clone the repo and reinitialize the git history
+
+```
+git clone https://github.com/possibilities/react-gadget-template.git hello-react
+cd hello-react
+rm -r .git
+git init
+```
+
+Optionally create a new repo on github and push to it
+
+```
+git remote origin git@github.com:possibilities/react-gadget-template.git
+git push origin master -u
+```
+
+#### Install prerequisites
 
 ```
 npm install --global gulp
@@ -8,25 +32,27 @@ npm install --global jshint
 npm install --global nightwatch
 ```
 
-## Install
+## Install dependencies
+
+This will build the dependencies and run the unit tests also
 
 ```
 npm install
 ```
 
-## Build
+## Build everything
 
 ```
 gulp
 ```
 
-## Unit tests
+## Run unit tests
 
 ```
 gulp test
 ```
 
-## Acceptance tests
+## Run demos
 
 ```
 gulp demos
