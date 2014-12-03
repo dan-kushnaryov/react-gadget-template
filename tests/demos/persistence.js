@@ -41,7 +41,7 @@ module.exports = {
       .addGadgetToLesson()
 
       // Setup: toggle to learning
-      // strange way to make the delete icon visible
+      // strange way to make the edit icon visible
       .click(ui.gadgetWrapper)
       .click(ui.gadgetEditToggle)
 
