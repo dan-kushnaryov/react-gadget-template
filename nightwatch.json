@@ -6,7 +6,7 @@
   "globals_path" : "tests/demos/globals.js",
   "selenium" : {
     "start_process" : true,
-    "server_path" : "tests/demos/lib/selenium-server-standalone-2.44.0.jar",
+    "server_path" : "tests/lib/selenium.jar",
     "log_path" : "",
     "host" : "localhost",
     "port" : 4444,

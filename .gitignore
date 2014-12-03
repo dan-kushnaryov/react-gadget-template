@@ -3,8 +3,7 @@ node_modules
 reports
 dist
 npm-debug.log
-images/*
-!images/.keep
+images
 selenium-debug.log
-tests/demos/lib/selenium-server-standalone-*.jar
+tests/lib/selenium.jar
 tmp
