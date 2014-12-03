@@ -88,7 +88,7 @@ var ensureSeleniumJar = function(callback) {
 };
 
 var deleteImages = function(callback) {
-  var images = glob.sync('images/**.png');
+  var images = glob.sync(__dirname + '/../images/**/*.png');
   images.forEach(fs.removeSync);
   callback();
 };
