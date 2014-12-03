@@ -20,7 +20,7 @@ module.exports = {
       .pause(500).saveScreenshot('images/author-typed-name.png')
 
       // Setup: refresh the browser
-      .refresh()
+      .pause(500).refresh()
       .frame(0).frame(0) // get back to the gadget iframe
       .waitForElementPresent(ui.authorName)
 
@@ -50,7 +50,7 @@ module.exports = {
       .pause(5000).saveScreenshot('images/learner-typed-name.png')
 
       // Setup: refresh the browser
-      .refresh()
+      .pause(500).refresh()
       .frame(0).frame(0) // get back to the gadget iframe
       .waitForElementPresent(ui.learnerName)
 
