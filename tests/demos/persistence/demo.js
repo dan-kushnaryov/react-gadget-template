@@ -17,7 +17,7 @@ module.exports = {
 
       // Setup: Type a new name
       .keys('Theodora')
-      .pause(500).saveScreenshot('images/author-typed-name.png')
+      .saveScreen('author-typed-name')
 
       // Setup: refresh the browser
       .pause(500).refresh()
@@ -27,7 +27,7 @@ module.exports = {
 
       // Assert: the author's new name appears
       .assert.containsText(ui.authorName, 'Theodora')
-      .pause(500).saveScreenshot('images/author-refreshed.png')
+      .saveScreen('author-refreshed')
 
       // Cleanup
       .removeGadgetFromLesson()
@@ -48,7 +48,7 @@ module.exports = {
 
       // Setup: Type a new name
       .keys('Rebecca')
-      .pause(5000).saveScreenshot('images/learner-typed-name.png')
+      .saveScreen('learner-typed-name')
 
       // Setup: refresh the browser
       .pause(500).refresh()
@@ -58,7 +58,7 @@ module.exports = {
 
       // Assert: the author's new name appears
       .assert.valueContains(ui.learnerName, 'Rebecca')
-      .pause(500).saveScreenshot('images/learner-refreshed.png')
+      .saveScreen('learner-refreshed')
 
       // Cleanup
       .removeGadgetFromLesson()

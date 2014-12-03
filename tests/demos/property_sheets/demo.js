@@ -23,24 +23,24 @@ module.exports = {
       // Setup: set value on property sheet
       .waitForElementPresent(ui.numberOfSmilesPropSheet)
       .setValue(ui.numberOfSmilesPropSheet, 1)
-      .pause(500).saveScreenshot('images/learner-changed-property-sheet.png')
+      .saveScreen('learner-changed-property-sheet')
 
       // Assert: the correct number of smiles are present
       .frame(0)
       .waitForElementPresent(ui.smiles)
       .assert.containsText(ui.smiles, '(:')
-      .pause(500).saveScreenshot('images/learner-refreshed.png')
+      .saveScreen('learner-refreshed')
 
       // Setup: set value on property sheet
       .frameParent(0)
       .setValue(ui.numberOfSmilesPropSheet, 2)
-      .pause(500).saveScreenshot('images/learner-changed-property-sheet-again.png')
+      .saveScreen('learner-changed-property-sheet-again')
 
       // Assert: the correct number of smiles are present
       .frame(0)
       .waitForElementPresent(ui.smiles)
       .assert.containsText(ui.smiles, '(:(:')
-      .pause(500).saveScreenshot('images/learner-refreshed.png')
+      .saveScreen('learner-refreshed')
 
       // Cleanup
       .removeGadgetFromLesson()

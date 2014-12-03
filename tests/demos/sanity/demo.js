@@ -13,7 +13,7 @@ module.exports = {
       .addGadgetToLesson()
 
       // Assert: nothing to assert, just take a screenshot
-      .pause(500).saveScreenshot('images/author-added-gadget.png')
+      .saveScreen('author-added-gadget')
 
       // Cleanup
       // TODO make removeGadgetFromLesson deal with
@@ -32,7 +32,7 @@ module.exports = {
       .click(ui.gadgetEditToggle)
 
       // Assert: nothing to assert, just take a screenshot
-      .pause(500).saveScreenshot('images/author-toggled-to-learner.png')
+      .saveScreen('author-toggled-to-learner')
 
       // Cleanup
       // TODO make removeGadgetFromLesson deal with
