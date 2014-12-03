@@ -20,7 +20,7 @@ git init
 Optionally create a new repo on github and push to it
 
 ```
-git remote origin git@github.com:possibilities/react-gadget-template.git
+git remote origin git@github.com:username/repo.git
 git push origin master -u
 ```
 
