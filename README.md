@@ -31,3 +31,9 @@ gulp test
 ```
 gulp demos
 ```
+
+Any arguments are passed to `nightwatch`. For example if you want to run a single group of tests:
+
+```
+gulp demos --group sanity
+```

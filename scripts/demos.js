@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// Run versal preview, run nightwatch and kill preview.
+// Passes through any arguments to nightwatch.
+
 spawn = require('child_process').spawn;
 
 var nightwatch, versalPreview;
@@ -22,7 +25,8 @@ var onNightwatchOutput = function(data) {
 
 var onPreviewOutput = function(data) {
   if (/ctrl \+ C to stop/.test(data.toString())) {
-    nightwatch = spawn('nightwatch');
+    var nightwatchArgs = process.argv.slice(2);
+    nightwatch = spawn('nightwatch', nightwatchArgs);
     nightwatch.stdout.pipe(process.stdout);
     nightwatch.stderr.pipe(process.stderr);
     nightwatch.stdout.on('data', onNightwatchOutput);
