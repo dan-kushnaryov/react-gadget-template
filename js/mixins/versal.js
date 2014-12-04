@@ -43,29 +43,31 @@ var VersalGadgetMixin = {
 
   _onAttributesChanged: function(attributes) {
     this.setState(attributes);
-    if (this._attributesSet) {
-      return;
+
+    if (!this._attributesSet) {
+      this._attributesSet = true;
+      this._maybeReady();
+      this._persistDefaultAttributes();
     }
-    this._attributesSet = true;
-    this._maybeReady();
   },
 
   _onLearnerStateChanged: function(learnerState) {
     this.setState(learnerState);
-    if (this._learnerStateSet) {
-      return;
+
+    if (!this._learnerStateSet) {
+      this._learnerStateSet = true;
+      this._maybeReady();
+      this._persistDefaultLearnerState();
     }
-    this._learnerStateSet = true;
-    this._maybeReady();
   },
 
   _onEditableChanged: function(editable) {
     this.setState(editable);
-    if (this._editableSet) {
-      return;
+
+    if (!this._editableSet) {
+      this._editableSet = true;
+      this._maybeReady();
     }
-    this._editableSet = true;
-    this._maybeReady();
   },
 
   _getDefaultAttributes: function() {
@@ -81,6 +83,32 @@ var VersalGadgetMixin = {
       return this.getDefaultLearnerState();
     } else {
       return {};
+    }
+  },
+
+  _persistDefaultAttributes: function() {
+    if (this.getDefaultAttributes) {
+      var defaults = this.getDefaultAttributes();
+      var unsavedDefaults = _.reduce(defaults, function(unsaved, val, key) {
+        if (!this.state[key]) {
+          unsaved[key] = val;
+        }
+        return unsaved;
+      }, {}, this);
+      this.player.setAttributes(unsavedDefaults);
+    }
+  },
+
+  _persistDefaultLearnerState: function() {
+    if (this.getDefaultLearnerState) {
+      var defaults = this.getDefaultLearnerState();
+      var unsavedDefaults = _.reduce(defaults, function(unsaved, val, key) {
+        if (!this.state[key]) {
+          unsaved[key] = val;
+        }
+        return unsaved;
+      }, {}, this);
+      this.player.setLearnerState(unsavedDefaults);
     }
   },
 

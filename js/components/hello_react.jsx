@@ -6,6 +6,7 @@ var Smiles = require('./smiles');
 var HelloReact = React.createClass({
 
   propTypes: {
+    numberOfSmiles: React.PropTypes.number.isRequired,
     editable: React.PropTypes.bool.isRequired,
     onAuthorNameChange: React.PropTypes.func.isRequired,
     onLearnerNameChange: React.PropTypes.func.isRequired,
