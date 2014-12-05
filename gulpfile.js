@@ -5,7 +5,6 @@ var reactify = require('reactify');
 var spawn = require('child_process').spawn;
 var stylus = require('gulp-stylus');
 var concat = require('gulp-concat');
-var Filter = require('gulp-filter');
 var globalShim = require('browserify-global-shim');
 
 gulp.task('lint', function (callback) {
@@ -60,16 +59,12 @@ gulp.task('bundle', function(){
 });
 
 gulp.task('css', function() {
-  var filter = Filter('**/*.styl');
-
   return gulp.src([
       'bower_components/normalize-css/normalize.css',
       'bower_components/versal-gadget-api/versal-gadget-theme.css',
-      './css/**/*.styl'
+      './css/app.styl'
     ])
-    .pipe(filter)
     .pipe(stylus())
-    .pipe(filter.restore())
     .pipe(concat('app.css'))
     .pipe(gulp.dest('./dist'));
 });
