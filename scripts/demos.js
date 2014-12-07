@@ -5,6 +5,7 @@
 
 var spawn = require('child_process').spawn;
 var https = require('https');
+var http = require('http');
 var fs = require('fs-extra');
 var path = require('path');
 var async = require('async');
@@ -37,22 +38,33 @@ var onNightwatchOutput = function(versalPreview, nightwatch, callback, data) {
   }
 };
 
+var startNightwatch = function(versalPreview, callback) {
+  var nightwatchArgs = process.argv.slice(2);
+  nightwatch = spawn('nightwatch', nightwatchArgs);
+
+  nightwatch.stdout.pipe(process.stdout);
+  nightwatch.stderr.pipe(process.stderr);
+
+  var handler = onNightwatchOutput.bind(null,
+    versalPreview,
+    nightwatch,
+    callback
+  );
+
+  nightwatch.stdout.on('data', handler);
+};
+
+var killSeleniumServer = function(callback) {
+  var url = 'http://localhost:4444/selenium-server'
+    + '/driver/?cmd=shutDownSeleniumServer';
+    http.get(url).on('error', callback);
+};
+
 var onPreviewOutput = function(versalPreview, callback, data) {
   if (/ctrl \+ C to stop/.test(data.toString())) {
-    var nightwatchArgs = process.argv.slice(2);
-
-    nightwatch = spawn('nightwatch', nightwatchArgs);
-
-    nightwatch.stdout.pipe(process.stdout);
-    nightwatch.stderr.pipe(process.stderr);
-
-    var handler = onNightwatchOutput.bind(null,
-      versalPreview,
-      nightwatch,
-      callback
+    killSeleniumServer(
+      startNightwatch.bind(null, versalPreview, callback)
     );
-
-    nightwatch.stdout.on('data', handler);
   }
 };
 

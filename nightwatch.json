@@ -21,10 +21,6 @@
       "selenium_port"  : 4444,
       "selenium_host"  : "localhost",
       "silent": true,
-      "screenshots" : {
-        "enabled" : true,
-        "path" : "images"
-      },
       "desiredCapabilities": {
         "browserName": "chrome",
         "javascriptEnabled": true,
