@@ -16,13 +16,15 @@ describe('Smiles', function() {
   });
 
   it('should show the correct number of smiles', function() {
-    var smiles = renderComponent(<Smiles numberOfSmiles={3} />);
+    var smiles;
+
+    smiles = renderComponent(<Smiles numberOfSmiles={3} />);
     expect(smiles.getDOMNode().textContent).toEqual('(:(:(:');
 
-    var smiles = renderComponent(<Smiles numberOfSmiles={2} />);
+    smiles = renderComponent(<Smiles numberOfSmiles={2} />);
     expect(smiles.getDOMNode().textContent).toEqual('(:(:');
 
-    var smiles = renderComponent(<Smiles numberOfSmiles={1} />);
+    smiles = renderComponent(<Smiles numberOfSmiles={1} />);
     expect(smiles.getDOMNode().textContent).toEqual('(:');
   });
 });
