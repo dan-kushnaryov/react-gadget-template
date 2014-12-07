@@ -44,19 +44,22 @@ gulp.task('css', function() {
 });
 
 gulp.task('lint', shell.task([
-  './scripts/lint.sh ' + args.join(' ')
+  './scripts/lint.sh'
 ]));
 
 gulp.task('run-demos', shell.task([
+  // NOTE: passes args down to nightwatch, unsure
+  // this will scale when mixed with other tasks
+  // e.g. copy-screenshots relies on this onw
   './scripts/demos.js ' + args.join(' ')
 ]));
 
 gulp.task('copy-screenshots', ['run-demos'], shell.task([
-  './scripts/screenshots.js ' + args.join(' ')
+  './scripts/screenshots.js'
 ]));
 
 gulp.task('run-tests', shell.task([
-  './node_modules/.bin/jest ' + args.join(' ')
+  './node_modules/.bin/jest'
 ]));
 
 gulp.task('base', ['lint', 'bundle', 'css']);
