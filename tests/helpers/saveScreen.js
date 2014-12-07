@@ -27,4 +27,4 @@ exports.command = function (caption) {
     .saveScreenshot(screenshotName);
 
   return browser;
-}
+};

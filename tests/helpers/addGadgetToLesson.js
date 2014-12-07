@@ -9,7 +9,7 @@ exports.command = function () {
   browser
     .waitForElementPresent(ui.gadgetInTray)
     .jqueryDoubleClick(ui.gadgetInTray)
-    .waitForElementPresent(ui.gadgetInLesson)
+    .waitForElementPresent(ui.gadgetInLesson);
 
   return browser;
-}
+};

@@ -16,7 +16,7 @@ exports.command = function () {
     .click(ui.gadgetDelete)
     .waitForElementPresent(ui.gadgetConfirmDelete)
     .click(ui.gadgetConfirmDelete)
-    .waitForElementNotPresent(ui.gadgetInLesson)
+    .waitForElementNotPresent(ui.gadgetInLesson);
 
   return browser;
-}
+};
