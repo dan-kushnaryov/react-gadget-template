@@ -9,6 +9,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var async = require('async');
 var glob = require('glob');
+var request = require('request');
 
 var startServerAndRunTests = function(callback) {
 
@@ -58,8 +59,10 @@ var killSeleniumServer = function(callback) {
   var url = 'http://localhost:4444/selenium-server'
     + '/driver/?cmd=shutDownSeleniumServer';
   // Give it a few secs to wind down after killing
+  // NOTE: purposely not handling err because it's
+  // fine if it fails.
   callback = setTimeout.bind(null, callback, 4000);
-  http.get(url, callback).on('error', function(err) { callback(); });
+  request.get(url, callback);
 };
 
 var onPreviewOutput = function(versalPreview, callback, data) {
