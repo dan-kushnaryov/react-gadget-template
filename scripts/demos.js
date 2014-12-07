@@ -4,7 +4,6 @@
 // Passes through any arguments to nightwatch.
 
 var spawn = require('child_process').spawn;
-var https = require('https');
 var http = require('http');
 var fs = require('fs-extra');
 var path = require('path');
@@ -12,6 +11,7 @@ var async = require('async');
 var glob = require('glob');
 
 var startServerAndRunTests = function(callback) {
+
   var versalPreviewCommand = 'versal preview --port 6952'.split(' ');
 
   var command = versalPreviewCommand[0];
@@ -57,7 +57,9 @@ var startNightwatch = function(versalPreview, callback) {
 var killSeleniumServer = function(callback) {
   var url = 'http://localhost:4444/selenium-server'
     + '/driver/?cmd=shutDownSeleniumServer';
-    http.get(url).on('error', callback);
+  // Give it a few secs to wind down after killing
+  callback = setTimeout.bind(null, callback, 4000);
+  http.get(url, callback).on('error', function(err) { console.error(err); callback(); });
 };
 
 var onPreviewOutput = function(versalPreview, callback, data) {
