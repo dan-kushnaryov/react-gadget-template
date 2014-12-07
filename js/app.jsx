@@ -1,14 +1,17 @@
 var _ = require('underscore');
 var React = require('react');
 var HelloReact = require('./components/hello_react');
-var VersalGadgetMixin = require('./mixins/versal');
+var GadgetControllerMixin = require('react-gadget-controller');
 
 // This is an incubator. Some things can be extracted up
 // into the mixin. It's the place where where we set attributes
 // on the app.
+// Currently this is also where events are handled that result
+// in interactions with the player. Unsure how this should
+// work. Probably Flux would wash this away.
 
-var HelloReactController = React.createClass({
-  mixins: [VersalGadgetMixin],
+var GadgetController = React.createClass({
+  mixins: [GadgetControllerMixin],
 
   getDefaultAttributes: function() {
     return {
@@ -47,6 +50,6 @@ var HelloReactController = React.createClass({
 });
 
 React.render(
-  <HelloReactController />,
+  <GadgetController />,
   document.getElementById('app')
 );

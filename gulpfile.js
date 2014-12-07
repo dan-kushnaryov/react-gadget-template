@@ -15,8 +15,7 @@ gulp.task('bundle', function(){
     extensions: ['.jsx']
   });
   var globalShimTransform = globalShim.configure({
-    'react': 'React',
-    'versal_player_api': 'VersalPlayerAPI'
+    'react': 'React'
   });
   b.transform(reactify);
   b.transform(globalShimTransform);

@@ -5,7 +5,8 @@
   },
   "dependencies": {
     "react": "~0.12.1",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "react-gadget-controller": "Versal/react-gadget-controller"
   },
   "devDependencies": {
     "browserify": "~6.3.3",
