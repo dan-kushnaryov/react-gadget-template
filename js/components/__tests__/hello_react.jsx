@@ -1,7 +1,6 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-jest.dontMock('../../mixins/versal');
 jest.dontMock('../hello_react');
 var HelloReact = require('../hello_react');
 
