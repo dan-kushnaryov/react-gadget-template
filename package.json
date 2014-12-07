@@ -5,7 +5,8 @@
   },
   "dependencies": {
     "react": "~0.12.1",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "react-gadget-controller": "Versal/react-gadget-controller"
   },
   "devDependencies": {
     "browserify": "~6.3.3",
@@ -22,7 +23,9 @@
     "underscore.string": "~2.4.0",
     "fs-extra": "~0.12.0",
     "async": "~0.9.0",
-    "glob": "^4.3.1"
+    "glob": "~4.3.1",
+    "request": "~2.49.0",
+    "gulp-shell": "~0.2.11"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/tests/utils/preprocessor.js",

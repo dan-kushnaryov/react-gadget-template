@@ -4,13 +4,15 @@
 // Passes through any arguments to nightwatch.
 
 var spawn = require('child_process').spawn;
-var https = require('https');
+var http = require('http');
 var fs = require('fs-extra');
 var path = require('path');
 var async = require('async');
 var glob = require('glob');
+var request = require('request');
 
 var startServerAndRunTests = function(callback) {
+
   var versalPreviewCommand = 'versal preview --port 6952'.split(' ');
 
   var command = versalPreviewCommand[0];
@@ -37,22 +39,37 @@ var onNightwatchOutput = function(versalPreview, nightwatch, callback, data) {
   }
 };
 
+var startNightwatch = function(versalPreview, callback) {
+  var nightwatchArgs = process.argv.slice(2);
+  nightwatch = spawn('nightwatch', nightwatchArgs);
+
+  nightwatch.stdout.pipe(process.stdout);
+  nightwatch.stderr.pipe(process.stderr);
+
+  var handler = onNightwatchOutput.bind(null,
+    versalPreview,
+    nightwatch,
+    callback
+  );
+
+  nightwatch.stdout.on('data', handler);
+};
+
+var killSeleniumServer = function(callback) {
+  var url = 'http://localhost:4444/selenium-server'
+    + '/driver/?cmd=shutDownSeleniumServer';
+  // Give it a few secs to wind down after killing
+  // NOTE: purposely not handling err because it's
+  // fine if it fails.
+  callback = setTimeout.bind(null, callback, 4000);
+  request.get(url, callback);
+};
+
 var onPreviewOutput = function(versalPreview, callback, data) {
   if (/ctrl \+ C to stop/.test(data.toString())) {
-    var nightwatchArgs = process.argv.slice(2);
-
-    nightwatch = spawn('nightwatch', nightwatchArgs);
-
-    nightwatch.stdout.pipe(process.stdout);
-    nightwatch.stderr.pipe(process.stderr);
-
-    var handler = onNightwatchOutput.bind(null,
-      versalPreview,
-      nightwatch,
-      callback
+    killSeleniumServer(
+      startNightwatch.bind(null, versalPreview, callback)
     );
-
-    nightwatch.stdout.on('data', handler);
   }
 };
 
@@ -71,20 +88,9 @@ var ensureSeleniumJar = function(callback) {
   var seleniumUrl = 'https://selenium-release.storage.googleapis.com' +
     '/2.44/selenium-server-standalone-2.44.0.jar';
 
-  var wgetSeleniumCommand = [
-    'wget',
-    seleniumUrl,
-    '--quiet',
-    '--output-document='+jarFilePath
-  ];
-
-  var command = wgetSeleniumCommand[0];
-  var args = wgetSeleniumCommand.slice(1);
-  var wgetSelenium = spawn(command, args);
-
-  wgetSelenium.stdout.pipe(process.stdout);
-  wgetSelenium.stderr.pipe(process.stderr);
-  wgetSelenium.stdout.on('close', callback);
+  var fetch = request(seleniumUrl)
+  fetch.pipe(fs.createWriteStream(jarFilePath))
+  fetch.on('end', callback);
 };
 
 var deleteImages = function(callback) {
