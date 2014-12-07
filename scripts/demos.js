@@ -4,7 +4,6 @@
 // Passes through any arguments to nightwatch.
 
 var spawn = require('child_process').spawn;
-var http = require('http');
 var fs = require('fs-extra');
 var path = require('path');
 var async = require('async');
