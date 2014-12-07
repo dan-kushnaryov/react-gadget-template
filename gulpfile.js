@@ -51,6 +51,10 @@ gulp.task('run-demos', shell.task([
   './scripts/demos.js ' + args.join(' ')
 ]));
 
+gulp.task('copy-screenshots', ['run-demos'], shell.task([
+  './scripts/screenshots.js ' + args.join(' ')
+]));
+
 gulp.task('run-tests', shell.task([
   './node_modules/.bin/jest ' + args.join(' ')
 ]));
@@ -58,5 +62,6 @@ gulp.task('run-tests', shell.task([
 gulp.task('base', ['lint', 'bundle', 'css']);
 gulp.task('demo', ['base', 'run-demos']);
 gulp.task('test', ['base', 'run-tests']);
+gulp.task('screenshots', ['base', 'run-demos', 'copy-screenshots']);
 
 gulp.task('default', ['base']);

@@ -48,5 +48,9 @@
   },
   "browserify-global-shim": {
     "react": "React"
+  },
+  "screenshots": {
+    "default-authoring": "sanity/default-authoring/author-added-gadget",
+    "default-learning": "sanity/default-learning/author-toggled-to-learner"
   }
 }
