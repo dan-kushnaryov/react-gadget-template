@@ -6,7 +6,9 @@ var stylus = require('gulp-stylus');
 var concat = require('gulp-concat');
 var globalShim = require('browserify-global-shim');
 var shell = require('gulp-shell');
+var fs = require('fs-extra');
 
+var pkg = fs.readJsonSync('./package.json');
 var args = process.argv.slice(2);
 
 gulp.task('bundle', function(){
@@ -14,9 +16,9 @@ gulp.task('bundle', function(){
     ignoreGlobals: true,
     extensions: ['.jsx']
   });
-  var globalShimTransform = globalShim.configure({
-    'react': 'React'
-  });
+  // We store the settings in package.json to keep this file generic
+  var globalShimOptions = pkg['browserify-global-shim'];
+  var globalShimTransform = globalShim.configure(globalShimOptions);
   b.transform(reactify);
   b.transform(globalShimTransform);
   b.add('./js/app.jsx');

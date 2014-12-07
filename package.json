@@ -45,5 +45,8 @@
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/react"
     ]
+  },
+  "browserify-global-shim": {
+    "react": "React"
   }
 }
