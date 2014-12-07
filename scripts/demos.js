@@ -59,7 +59,7 @@ var killSeleniumServer = function(callback) {
     + '/driver/?cmd=shutDownSeleniumServer';
   // Give it a few secs to wind down after killing
   callback = setTimeout.bind(null, callback, 4000);
-  http.get(url, callback).on('error', function(err) { console.error(err); callback(); });
+  http.get(url, callback).on('error', function(err) { callback(); });
 };
 
 var onPreviewOutput = function(versalPreview, callback, data) {
