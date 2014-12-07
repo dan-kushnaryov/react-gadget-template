@@ -1,4 +1,4 @@
-# React gadget template [![Build Status](https://travis-ci.org/possibilities/react-gadget-template.svg?branch=master)](https://travis-ci.org/possibilities/react-gadget-template)
+# React gadget template [![Build Status](https://travis-ci.org/Versal/react-gadget-template.svg?branch=master)](https://travis-ci.org/Versal/react-gadget-template)
 
 ## Summary
 
@@ -11,7 +11,7 @@ A hyper opinionated template for making [Versal](https://versal.com/gadgets) gad
 Clone the repo and reinitialize the git history
 
 ```
-git clone https://github.com/possibilities/react-gadget-template.git hello-react
+git clone https://github.com/Versal/react-gadget-template.git hello-react
 cd hello-react
 rm -r .git
 git init
