@@ -88,20 +88,9 @@ var ensureSeleniumJar = function(callback) {
   var seleniumUrl = 'https://selenium-release.storage.googleapis.com' +
     '/2.44/selenium-server-standalone-2.44.0.jar';
 
-  var wgetSeleniumCommand = [
-    'wget',
-    seleniumUrl,
-    '--quiet',
-    '--output-document='+jarFilePath
-  ];
-
-  var command = wgetSeleniumCommand[0];
-  var args = wgetSeleniumCommand.slice(1);
-  var wgetSelenium = spawn(command, args);
-
-  wgetSelenium.stdout.pipe(process.stdout);
-  wgetSelenium.stderr.pipe(process.stderr);
-  wgetSelenium.stdout.on('close', callback);
+  var fetch = request(seleniumUrl)
+  fetch.pipe(fs.createWriteStream(jarFilePath))
+  fetch.on('end', callback);
 };
 
 var deleteImages = function(callback) {
