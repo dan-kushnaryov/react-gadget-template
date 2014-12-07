@@ -4,6 +4,16 @@
 
 A hyper opinionated template for making [Versal](https://versal.com/gadgets) gadgets with [ReactJs](http://facebook.github.io/react/).
 
+## Screenshots
+
+### Default learning
+
+![Default learning](screenshots/default-learning.png)
+
+### Default authoring
+
+![Default authoring](screenshots/default-authoring.png)
+
 ### Usage
 
 #### Create a gadget from the template
