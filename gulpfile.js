@@ -6,12 +6,24 @@ var stylus = require('gulp-stylus');
 var concat = require('gulp-concat');
 var globalShim = require('browserify-global-shim');
 var shell = require('gulp-shell');
+var jshint = require('gulp-jshint');
+var react = require('gulp-react');
 var fs = require('fs-extra');
 
 // We store the settings in package.json to
 // keep this file generic
 var pkg = fs.readJsonSync('./package.json');
 var args = process.argv.slice(2);
+
+gulp.task('jshint', function() {
+  return gulp.src([
+      'js/**/*.{js,jsx}',
+      'tests/**/*.{js,jsx}'
+    ])
+    .pipe(react())
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
 
 gulp.task('bundle', function(){
   var b = browserify({
@@ -43,14 +55,10 @@ gulp.task('css', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('lint', shell.task([
-  './scripts/lint.sh'
-]));
-
 gulp.task('run-demos', shell.task([
   // NOTE: passes args down to nightwatch, unsure
   // this will scale when mixed with other tasks
-  // e.g. copy-screenshots relies on this onw
+  // e.g. copy-screenshots relies on this now
   './scripts/demos.js ' + args.join(' ')
 ]));
 
@@ -62,7 +70,7 @@ gulp.task('run-tests', shell.task([
   './node_modules/.bin/jest'
 ]));
 
-gulp.task('base', ['lint', 'bundle', 'css']);
+gulp.task('base', ['jshint', 'bundle', 'css']);
 gulp.task('demo', ['base', 'run-demos']);
 gulp.task('test', ['base', 'run-tests']);
 gulp.task('screenshots', ['base', 'run-demos', 'copy-screenshots']);
