@@ -38,9 +38,15 @@ gulp.task('css', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('lint', shell.task(['./scripts/lint.sh ' + args.join(' ')]));
-gulp.task('run-demos', shell.task(['./scripts/demos.js ' + args.join(' ')]));
-gulp.task('run-tests', shell.task(['./node_modules/.bin/jest ' + args.join(' ')]));
+gulp.task('lint', shell.task([
+  './scripts/lint.sh ' + args.join(' ')
+]));
+gulp.task('run-demos', shell.task([
+  './scripts/demos.js ' + args.join(' ')
+]));
+gulp.task('run-tests', shell.task([
+  './node_modules/.bin/jest ' + args.join(' ')
+]));
 
 gulp.task('base', ['lint', 'bundle', 'css']);
 gulp.task('demo', ['base', 'run-demos']);
