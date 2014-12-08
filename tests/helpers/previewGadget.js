@@ -4,8 +4,7 @@ exports.command = function () {
   browser
     .url('http://127.0.0.1:6952')
     .resizeWindow(1600, 900)
-    .frame(0)
+    .frame(0);
 
   return browser;
-}
-
+};

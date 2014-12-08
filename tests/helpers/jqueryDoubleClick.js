@@ -5,4 +5,4 @@ exports.command = function (selector) {
     .execute("window.$('" + selector + "').trigger('dblclick')");
 
   return browser;
-}
+};
