@@ -36,6 +36,8 @@ git push origin master -u
 
 #### Install prerequisites
 
+*Note: On linux you'll need `g++` which is available through `build-essential` package on debian based distros.*
+
 ```
 npm install --global gulp
 npm install --global jshint
@@ -75,3 +77,13 @@ Any arguments are passed to `nightwatch`. For example if you want to run a singl
 ```
 gulp demo --group sanity
 ```
+
+## Generate screenshots
+
+This tasks runs the demos and pulls out the screenshots for use in the README (see above). This should be run often and the resulting files in `./screenshots` should be committed.
+
+```
+gulp screenshots
+```
+
+Screenshots you want to pull out can be declared in the `screenshots` key of `package.json`. See the top of [`scripts/screenshots.js`](scripts/screenshots.js) for more details.
