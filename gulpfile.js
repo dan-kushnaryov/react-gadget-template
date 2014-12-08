@@ -8,12 +8,18 @@ var globalShim = require('browserify-global-shim');
 var shell = require('gulp-shell');
 var jshint = require('gulp-jshint');
 var react = require('gulp-react');
+var clean = require('gulp-clean');
 var fs = require('fs-extra');
 
 // We store the settings in package.json to
 // keep this file generic
 var pkg = fs.readJsonSync('./package.json');
 var args = process.argv.slice(2);
+
+gulp.task('cleanup-dist', function() {
+  return gulp.src('dist', {read: false})
+    .pipe(clean());
+});
 
 gulp.task('jshint', function() {
   return gulp.src([
@@ -25,7 +31,7 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('bundle', function(){
+gulp.task('bundle', ['cleanup-dist'], function(){
   var b = browserify({
     ignoreGlobals: true,
     extensions: ['.jsx']
@@ -44,7 +50,7 @@ gulp.task('bundle', function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('css', function() {
+gulp.task('css', ['cleanup-dist'], function() {
   return gulp.src([
       'bower_components/normalize-css/normalize.css',
       'bower_components/versal-gadget-api/versal-gadget-theme.css',
