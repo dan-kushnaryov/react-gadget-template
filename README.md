@@ -6,11 +6,11 @@ A hyper opinionated template for making [Versal](https://versal.com/gadgets) gad
 
 ## Screenshots
 
-### Default learning
+**Default learning**
 
 ![Default learning](screenshots/default-learning.png)
 
-### Default authoring
+**Default authoring**
 
 ![Default authoring](screenshots/default-authoring.png)
 
@@ -84,6 +84,12 @@ This tasks runs the demos and pulls out the screenshots for use in the README (s
 
 ```
 gulp screenshots
+```
+
+If you've already run the demos you can simply copy the screenshots
+
+```
+gulp copy-screenshots
 ```
 
 Screenshots you want to pull out can be declared in the `screenshots` key of `package.json`. See the top of [`scripts/screenshots.js`](scripts/screenshots.js) for more details.
