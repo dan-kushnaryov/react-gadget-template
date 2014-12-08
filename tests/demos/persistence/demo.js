@@ -16,7 +16,7 @@ module.exports = {
       .addGadgetToLesson()
 
       // Setup: Type a new name
-      .keys('Theodora')
+      .keys('Theodora ')
       .saveScreen('author-typed-name')
 
       // Setup: refresh the browser
@@ -47,7 +47,7 @@ module.exports = {
       .click(ui.gadgetEditToggle)
 
       // Setup: Type a new name
-      .keys('Rebecca')
+      .keys('Rebecca ')
       .saveScreen('learner-typed-name')
 
       // Setup: refresh the browser

@@ -79,6 +79,6 @@ gulp.task('run-tests', shell.task([
 gulp.task('base', ['jshint', 'bundle', 'css']);
 gulp.task('demo', ['base', 'run-demos']);
 gulp.task('test', ['base', 'run-tests']);
-gulp.task('screenshots', ['base', 'run-demos', 'copy-screenshots']);
+gulp.task('screenshots', ['demo', 'copy-screenshots']);
 
 gulp.task('default', ['base']);
