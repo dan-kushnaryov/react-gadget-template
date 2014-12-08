@@ -27,7 +27,8 @@
     "request": "~2.49.0",
     "gulp-shell": "~0.2.11",
     "gulp-jshint": "~1.9.0",
-    "gulp-react": "~2.0.0"
+    "gulp-react": "~2.0.0",
+    "gulp-clean": "~0.3.1"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/tests/utils/preprocessor.js",
@@ -41,8 +42,7 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules",
-      "<rootDir>/dist",
-      "<rootDir>/tmp"
+      "<rootDir>/dist"
     ],
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/react"
