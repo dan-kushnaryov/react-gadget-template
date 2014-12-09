@@ -64,6 +64,20 @@ gulp
 gulp test
 ```
 
+## Run preview
+
+```
+gulp preview
+```
+
+## Run for development
+
+Preview, watch and run tests
+
+```
+gulp develop
+```
+
 ## Run demos
 
 Start the `versal preview` command and run selenium test suite against it

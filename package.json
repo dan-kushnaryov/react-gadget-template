@@ -27,7 +27,8 @@
     "gulp-shell": "~0.2.11",
     "gulp-jshint": "~1.9.0",
     "gulp-react": "~2.0.0",
-    "gulp-clean": "~0.3.1"
+    "gulp-clean": "~0.3.1",
+    "gulp-watch": "~3.0.0"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/tests/jest/preprocessor.js",
