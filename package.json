@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "browserify": "~6.3.3",
-    "gulp": "~3.8.10",
+    "gulp": "JSON COMMENT: https://github.com/gulpjs/gulp/issues/810 keep an eye on this",
+    "gulp": "3.8.8",
     "jest-cli": "~0.1.18",
     "nightwatch": "~0.5.34",
     "react-tools": "~0.12.1",
