@@ -94,16 +94,4 @@ gulp demo --group sanity
 
 ## Generate screenshots
 
-This tasks runs the demos and pulls out the screenshots for use in the README (see above). This should be run often and the resulting files in `./screenshots` should be committed.
-
-```
-gulp screenshots
-```
-
-If you've already run the demos you can simply copy the screenshots
-
-```
-gulp copy-screenshots
-```
-
-Screenshots you want to pull out can be declared in the `screenshots` key of `package.json`. See the top of [`scripts/screenshots.js`](scripts/screenshots.js) for more details.
+The selenium commands in `./tests/demos` take screenshots which get dumped to `./images`. These can be used for acceptance of designs and other validation.
