@@ -73,7 +73,7 @@ var onPreviewOutput = function(versalPreview, callback, data) {
 };
 
 var ensureSeleniumJar = function(callback) {
-  var libPath = path.join(__dirname, '../tests/lib');
+  var libPath = path.join(__dirname, '../tests/nightwatch');
   var jarFilePath = path.join(libPath, 'selenium.jar')
 
   fs.mkdirsSync(libPath);

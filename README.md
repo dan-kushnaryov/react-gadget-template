@@ -8,11 +8,11 @@ A hyper opinionated template for making [Versal](https://versal.com/gadgets) gad
 
 **Default learning**
 
-![Default learning](screenshots/default-learning.png)
+![Default learning](images/sanity/default-learning/author-toggled-to-learner.png)
 
 **Default authoring**
 
-![Default authoring](screenshots/default-authoring.png)
+![Default authoring](images/sanity/default-authoring/author-added-gadget.png)
 
 ### Usage
 
@@ -64,6 +64,20 @@ gulp
 gulp test
 ```
 
+## Run preview
+
+```
+gulp preview
+```
+
+## Run for development
+
+Preview, watch and run tests
+
+```
+gulp develop
+```
+
 ## Run demos
 
 Start the `versal preview` command and run selenium test suite against it
@@ -80,16 +94,4 @@ gulp demo --group sanity
 
 ## Generate screenshots
 
-This tasks runs the demos and pulls out the screenshots for use in the README (see above). This should be run often and the resulting files in `./screenshots` should be committed.
-
-```
-gulp screenshots
-```
-
-If you've already run the demos you can simply copy the screenshots
-
-```
-gulp copy-screenshots
-```
-
-Screenshots you want to pull out can be declared in the `screenshots` key of `package.json`. See the top of [`scripts/screenshots.js`](scripts/screenshots.js) for more details.
+The selenium commands in `./tests/demos` take screenshots which get dumped to `./images`. These can be used for acceptance of designs and other validation.

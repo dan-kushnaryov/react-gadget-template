@@ -10,6 +10,7 @@ var jshint = require('gulp-jshint');
 var react = require('gulp-react');
 var clean = require('gulp-clean');
 var fs = require('fs-extra');
+var watch = require('gulp-watch');
 
 // We store the settings in package.json to
 // keep this file generic
@@ -63,22 +64,24 @@ gulp.task('css', ['cleanup-dist'], function() {
 
 gulp.task('run-demos', shell.task([
   // NOTE: passes args down to nightwatch, unsure
-  // this will scale when mixed with other tasks
-  // e.g. copy-screenshots relies on this now
+  // this will work when mixed with other tasks
   './scripts/demos.js ' + args.join(' ')
-]));
-
-gulp.task('copy-screenshots', ['run-demos'], shell.task([
-  './scripts/screenshots.js'
 ]));
 
 gulp.task('run-tests', shell.task([
   './node_modules/.bin/jest'
 ]));
 
+gulp.task('preview', ['base'], shell.task(['versal preview .']));
+
+gulp.task('watch', ['base'], function () {
+  gulp.watch('./css/**/*.styl', ['css']);
+  gulp.watch('./js/**/*.jsx', ['run-tests']);
+});
+
 gulp.task('base', ['jshint', 'bundle', 'css']);
 gulp.task('demo', ['base', 'run-demos']);
 gulp.task('test', ['base', 'run-tests']);
-gulp.task('screenshots', ['demo', 'copy-screenshots']);
 
+gulp.task('develop', ['watch', 'preview']);
 gulp.task('default', ['base']);

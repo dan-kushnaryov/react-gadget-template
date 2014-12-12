@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "install": "bower install && gulp && npm test",
+    "install": "bower install && gulp",
     "test": "jest"
   },
   "dependencies": {
@@ -10,14 +10,12 @@
   },
   "devDependencies": {
     "browserify": "~6.3.3",
-    "gulp": "JSON COMMENT: https://github.com/gulpjs/gulp/issues/810 keep an eye on this",
-    "gulp": "3.8.8",
+    "gulp": "~3.8.10",
     "jest-cli": "~0.1.18",
     "nightwatch": "~0.5.34",
     "react-tools": "~0.12.1",
     "reactify": "~0.17.1",
     "vinyl-source-stream": "~1.0.0",
-    "jshint": "~2.5.10",
     "gulp-stylus": "~1.3.4",
     "browserify-global-shim": "~1.0.0",
     "gulp-concat": "~2.4.2",
@@ -29,10 +27,11 @@
     "gulp-shell": "~0.2.11",
     "gulp-jshint": "~1.9.0",
     "gulp-react": "~2.0.0",
-    "gulp-clean": "~0.3.1"
+    "gulp-clean": "~0.3.1",
+    "gulp-watch": "~3.0.0"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/tests/utils/preprocessor.js",
+    "scriptPreprocessor": "<rootDir>/tests/jest/preprocessor.js",
     "moduleFileExtensions": [
       "js",
       "jsx"
@@ -51,9 +50,5 @@
   },
   "browserify-global-shim": {
     "react": "React"
-  },
-  "screenshots": {
-    "default-authoring": "sanity/default-authoring/author-added-gadget",
-    "default-learning": "sanity/default-learning/author-toggled-to-learner"
   }
 }
