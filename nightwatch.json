@@ -1,12 +1,12 @@
 {
   "src_folders" : ["tests/demos"],
   "output_folder" : "reports",
-  "custom_commands_path" : "tests/helpers/",
+  "custom_commands_path" : "tests/nightwatch/helpers/",
   "custom_assertions_path" : "",
-  "globals_path" : "tests/demos/globals.js",
+  "globals_path" : "tests/nightwatch/globals.js",
   "selenium" : {
     "start_process" : true,
-    "server_path" : "tests/lib/selenium.jar",
+    "server_path" : "tests/nightwatch/selenium.jar",
     "log_path" : "",
     "host" : "localhost",
     "port" : 4444,

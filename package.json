@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "install": "bower install && gulp && npm test",
+    "install": "bower install && gulp",
     "test": "jest"
   },
   "dependencies": {
@@ -32,7 +32,7 @@
     "gulp-clean": "~0.3.1"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/tests/utils/preprocessor.js",
+    "scriptPreprocessor": "<rootDir>/tests/jest/preprocessor.js",
     "moduleFileExtensions": [
       "js",
       "jsx"
