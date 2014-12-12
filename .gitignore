@@ -4,5 +4,5 @@ reports
 dist
 npm-debug.log
 selenium-debug.log
-tests/lib/selenium.jar
+selenium.jar
 tmp
