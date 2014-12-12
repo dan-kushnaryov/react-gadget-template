@@ -18,20 +18,20 @@ A hyper opinionated template for making [Versal](https://versal.com/gadgets) gad
 
 #### Create a gadget from the template
 
-Clone the repo and reinitialize the git history
+Clone the repo and add your remote,
 
 ```
 git clone https://github.com/Versal/react-gadget-template.git hello-react
 cd hello-react
-rm -r .git
-git init
-```
-
-Optionally create a new repo on github and push to it
-
-```
+git remote remove origin
 git remote add origin git@github.com:username/repo.git
 git push origin master -u
+```
+
+Optionally add a remote for getting upstream changes
+
+```
+git remote add upstream https://github.com/Versal/react-gadget-template.git
 ```
 
 #### Install prerequisites
