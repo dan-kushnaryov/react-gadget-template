@@ -63,13 +63,8 @@ gulp.task('css', ['cleanup-dist'], function() {
 
 gulp.task('run-demos', shell.task([
   // NOTE: passes args down to nightwatch, unsure
-  // this will scale when mixed with other tasks
-  // e.g. copy-screenshots relies on this now
+  // this will work when mixed with other tasks
   './scripts/demos.js ' + args.join(' ')
-]));
-
-gulp.task('copy-screenshots', ['run-demos'], shell.task([
-  './scripts/screenshots.js'
 ]));
 
 gulp.task('run-tests', shell.task([
@@ -79,6 +74,5 @@ gulp.task('run-tests', shell.task([
 gulp.task('base', ['jshint', 'bundle', 'css']);
 gulp.task('demo', ['base', 'run-demos']);
 gulp.task('test', ['base', 'run-tests']);
-gulp.task('screenshots', ['demo', 'copy-screenshots']);
 
 gulp.task('default', ['base']);

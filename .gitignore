@@ -3,7 +3,6 @@ node_modules
 reports
 dist
 npm-debug.log
-images
 selenium-debug.log
 tests/lib/selenium.jar
 tmp

@@ -8,11 +8,11 @@ A hyper opinionated template for making [Versal](https://versal.com/gadgets) gad
 
 **Default learning**
 
-![Default learning](screenshots/default-learning.png)
+![Default learning](images/sanity/default-learning/author-toggled-to-learner.png)
 
 **Default authoring**
 
-![Default authoring](screenshots/default-authoring.png)
+![Default authoring](images/sanity/default-authoring/author-added-gadget.png)
 
 ### Usage
 
