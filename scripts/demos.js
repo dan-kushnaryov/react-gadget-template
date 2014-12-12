@@ -39,7 +39,7 @@ var onNightwatchOutput = function(versalPreview, nightwatch, callback, data) {
 };
 
 var startNightwatch = function(versalPreview, callback) {
-  var nightwatchArgs = process.argv.slice(2);
+  var nightwatchArgs = process.argv.slice(1);
   nightwatch = spawn('nightwatch', nightwatchArgs);
 
   nightwatch.stdout.pipe(process.stdout);

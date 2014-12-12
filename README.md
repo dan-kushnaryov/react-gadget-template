@@ -70,6 +70,12 @@ gulp test
 gulp preview
 ```
 
+Arguments are passed to `versal preview`. For example if you want to run on an alternate port
+
+```
+gulp preview --port 7777
+```
+
 ## Run for development
 
 Preview, watch and run tests
@@ -77,6 +83,8 @@ Preview, watch and run tests
 ```
 gulp develop
 ```
+
+Like `gulp preview` arguments are passed down to `versal preview`
 
 ## Run demos
 
@@ -86,7 +94,7 @@ Start the `versal preview` command and run selenium test suite against it
 gulp demo
 ```
 
-Any arguments are passed to `nightwatch`. For example if you want to run a single group of tests
+Arguments are passed to `nightwatch`. For example if you want to run a single group of tests
 
 ```
 gulp demo --group sanity

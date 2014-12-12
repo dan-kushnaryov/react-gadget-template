@@ -15,7 +15,7 @@ var watch = require('gulp-watch');
 // We store the settings in package.json to
 // keep this file generic
 var pkg = fs.readJsonSync('./package.json');
-var args = process.argv.slice(2);
+var args = process.argv.slice(3);
 
 gulp.task('cleanup-dist', function() {
   return gulp.src('dist', {read: false})
@@ -72,7 +72,9 @@ gulp.task('run-tests', shell.task([
   './node_modules/.bin/jest'
 ]));
 
-gulp.task('preview', ['base'], shell.task(['versal preview .']));
+gulp.task('preview', ['base'], shell.task([
+  'versal preview . ' + args.join(' ')
+]));
 
 gulp.task('watch', ['base'], function () {
   gulp.watch('./css/**/*.styl', ['css']);
